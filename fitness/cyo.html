@@ -1,0 +1,52 @@
+<!--This page is for the section that lets you create your own plan-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Your Plan</title>
+<style type="text/css">
+#selectedCondition{
+	float: right;
+	position: relative;
+	right: 85%;
+	bottom: 15pt;
+}
+</style>
+</head>
+
+<body>
+<div>
+<h1>Your Own Fitness Plan</h1>
+</div>
+
+<div>
+<h2>
+<a>Meal</a>
+<a>Exercise</a>
+</h2>
+
+<form>
+<h3>Exercise type:
+<select>
+<option value="weightLoss">weight-loss</option>
+<option value="bulkUp">bulk-up</option>
+<option value="preWorkout">pre-workout</option>
+</select>
+</h3>
+
+<h3>
+Description
+</h3>
+
+<textarea rows="6" cols="50" placeholder="Enter a description of your plan"></textarea>
+
+<h3>Upload exercise video</h3>
+<input type="button" value="Browse" />
+<h3 id="selectedCondition">no video selected</h3>
+
+<br />
+<input type="button" type="submit" value="Upload" />
+<input type="button" type="clear" value="Clear" />
+</form>
+</div>
+</body>
+</html>
