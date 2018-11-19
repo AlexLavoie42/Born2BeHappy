@@ -15,12 +15,12 @@
 
 <div id="cat2">
 <h2>
-<a>Meal</a>
-<a>Exercise</a>
+<a id="exercise">Exercise</a>
+<a id="meal">Meal</a>
 </h2>
 </div>
 
-<form>
+<form id="planForm">
 <h3>Plan name:
 <input type="text" name="author" size="50" placeholder="e.g. Michael's Plan To Shred Weight" id="planName" />
 </h3>
@@ -48,11 +48,26 @@ Description
 </form>
 
 <script>
-	var planName = document.getElementById("planName");
-	var exerciseType = document.getElementById("exerciseType");
-	var description = document.getElementById("description");
-	var video = document.getElementById("video");
+	//variables used to store user input after uploading plan
+	var isExercise, planName, type, description, video;
+	
+	//make the plan by default an exercise plan
+	document.getElementById("exercise").style.backgroundColor = "yellow";
+	isExercise = true;
+	
 	var uploadPlan = document.getElementById("uploadPlan");
+	var exercise = document.getElementById("exercise"), meal = document.getElementById("meal");
+	exercise.onclick = function(){exercise.style.backgroundColor = "yellow"; meal.style.backgroundColor = "transparent"; isExercise = true;};
+	meal.onclick = function(){exercise.style.backgroundColor = "transparent"; meal.style.backgroundColor = "yellow"; isExercise = false;};
+	
+	uploadPlan.onclick = function(){
+		planName = document.getElementById("planName").value;
+		type = document.getElementById("exerciseType").value;
+		description = document.getElementById("description").value;
+		console.log(planName + "\n" + type + "\n" + description +"\nexercise plan: " + isExercise);
+		
+		//uploadToFirebase();
+	}
 </script>
 </body>
 </html>
