@@ -28,9 +28,9 @@
 
 <h3>Exercise type:
 <select id="exerciseType">
-<option value="weightLoss">weight-loss</option>
-<option value="bulkUp">bulk-up</option>
-<option value="preWorkout">pre-workout</option>
+<option value="weightLoss">Upper-body</option>
+<option value="bulkUp">Lower-body</option>
+<option value="preWorkout">Cardio</option>
 </select>
 </h3>
 
@@ -49,26 +49,7 @@ Description
 </form>
 
 <script>
-	//variables used to store user input after uploading plan
-	var isExercise, planName, type, description, video;
 	
-	//make the plan by default an exercise plan
-	document.getElementById("exercise").style.backgroundColor = "yellow";
-	isExercise = true;
-	
-	var uploadPlan = document.getElementById("uploadPlan");
-	var exercise = document.getElementById("exercise"), meal = document.getElementById("meal");
-	exercise.onclick = function(){exercise.style.backgroundColor = "yellow"; meal.style.backgroundColor = "transparent"; isExercise = true;};
-	meal.onclick = function(){exercise.style.backgroundColor = "transparent"; meal.style.backgroundColor = "yellow"; isExercise = false;};
-	
-	uploadPlan.onclick = function(){
-		planName = document.getElementById("planName").value;
-		type = document.getElementById("exerciseType").value;
-		description = document.getElementById("description").value;
-		console.log(planName + "\n" + type + "\n" + description +"\nexercise plan: " + isExercise);
-		
-		//uploadToFirebase();
-	}
 </script>
 </body>
 </html>
