@@ -16,8 +16,8 @@
 
 <div id="cat2">
 <h2>
-<a id="exercise">Exercise</a>
-<a id="meal">Meal</a>
+<a onclick="switchSection(0)" id="exercise">Exercise</a>
+<a onclick="switchSection(1)" id="meal">Meal</a>
 </h2>
 </div>
 
@@ -28,9 +28,9 @@
 
 <h3>Exercise type:
 <select id="exerciseType">
-<option value="weightLoss">Upper-body</option>
-<option value="bulkUp">Lower-body</option>
-<option value="preWorkout">Cardio</option>
+<option id="type1">Upper-body</option>
+<option id="type2">Lower-body</option>
+<option id="type3">Cardio</option>
 </select>
 </h3>
 
@@ -48,8 +48,6 @@ Description
 <input type="button" type="clear" value="Clear" />
 </form>
 
-<script>
-console.log(FitnessPlan.getPlanName());
-</script>
+<script src="../scripts/fitnessPlans.js"></script>
 </body>
 </html>

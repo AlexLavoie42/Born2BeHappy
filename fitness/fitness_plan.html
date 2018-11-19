@@ -3,21 +3,20 @@
 <head>
 <title>Fitness Plan</title>
 <link href="../scripts/mainCss.css" rel="stylesheet" type="text/css" />
-<script src="../scripts/fitnessPlans.js"></script>
 </head>
 <body>
 <div id="cat1">
 <h1>Fitness Plan</h1>
-<a href="#" onclick="switchSection(0)">Exercise</a>
-<a href="#" onclick="switchSection(1)">Meal</a>
+<a onclick="switchSection(0)" id="exercise">Exercise</a>
+<a onclick="switchSection(1)" id="meal">Meal</a>
 <a href="cyo.html">CYO</a>
 </div>
 
 <div id="cat2">
 <h2>Categories:
-<a onclick="switchType(0)">Upper-body</a>
-<a onclick="switchType(1)">Lower-body</a>
-<a onclick="switchType(2)">Cardio</a>
+<a onclick="switchType(0)" id="type1">Upper-body</a>
+<a onclick="switchType(1)" id="type2">Lower-body</a>
+<a onclick="switchType(2)" id="type3">Cardio</a>
 </h2>
 </div>
 
@@ -33,5 +32,25 @@
 
 </tbody>
 </table>
+
+<script src="../scripts/fitnessPlans.js"></script>
+<script>
+function switchType(i){
+	planType = i;
+	if(i == 0){
+		type1.style.backgroundColor = "yellow";
+		type2.style.backgroundColor = "transparent";
+		type3.style.backgroundColor = "transparent";
+	} else if (i == 1){
+		type1.style.backgroundColor = "transparent";
+		type2.style.backgroundColor = "yellow";
+		type3.style.backgroundColor = "transparent";
+	} else {
+		type1.style.backgroundColor = "transparent";
+		type2.style.backgroundColor = "transparent";
+		type3.style.backgroundColor = "yellow";
+	}
+}
+</script>
 </body>
 </html>
