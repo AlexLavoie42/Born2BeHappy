@@ -1,10 +1,9 @@
 /* This file contains the fitness plan object */
-function FitnessPlan(isExercise, planName, type, description, video, rating){
+function FitnessPlan(isExercise, planName, type, description, rating){
 	this.isExercise = isExercise;
 	this.planName = planName;
 	this.type = type;
 	this.description = description;
-	this.video = video;
 	this.rating = rating;
 }
 
@@ -24,10 +23,6 @@ FitnessPlan.getDescription = function(){
 	return description;
 }
 
-FitnessPlan.getVideo = function(){
-	return video;
-}
-
 FitnessPlan.getRating = function(){
 	return rating;
 }
@@ -36,8 +31,8 @@ FitnessPlan.getRating = function(){
 var planCount = 0;
 var plan = new Array();
 
-function addPlan(isExercise, planName, type, description, video){
-	plan[planCount] = new FitnessPlan(isExercise, planName, type, description, video);
+function addPlan(isExercise, planName, type, description, rating){
+	plan[planCount] = new FitnessPlan(isExercise, planName, type, description, rating);
 	planCount++;
 }
 
