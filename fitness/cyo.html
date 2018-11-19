@@ -21,8 +21,12 @@
 </div>
 
 <form>
+<h3>Plan name:
+<input type="text" name="author" size="50" placeholder="e.g. Michael's Plan To Shred Weight" id="planName" />
+</h3>
+
 <h3>Exercise type:
-<select>
+<select id="exerciseType">
 <option value="weightLoss">weight-loss</option>
 <option value="bulkUp">bulk-up</option>
 <option value="preWorkout">pre-workout</option>
@@ -33,14 +37,22 @@
 Description
 </h3>
 
-<textarea rows="6" cols="50" placeholder="Enter a description of your plan"></textarea>
+<textarea rows="6" cols="50" placeholder="Enter a description of your plan" id="description"></textarea>
 
 <h3>Upload exercise video</h3>
-<input type="file" value="Browse" />
+<input type="file" value="Browse" id="video"/>
 
 <br />
-<input type="button" type="submit" value="Upload" />
+<input type="button" type="submit" value="Upload" id="uploadPlan" />
 <input type="button" type="clear" value="Clear" />
 </form>
+
+<script>
+	var planName = document.getElementById("planName");
+	var exerciseType = document.getElementById("exerciseType");
+	var description = document.getElementById("description");
+	var video = document.getElementById("video");
+	var uploadPlan = document.getElementById("uploadPlan");
+</script>
 </body>
 </html>
