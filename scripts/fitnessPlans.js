@@ -9,23 +9,23 @@ function FitnessPlan(isExercise, planName, type, description, rating){
 
 FitnessPlan.getIsExercise = function(){
 	return isExercise;
-}
+};
 
 FitnessPlan.getPlanName = function(){
 	return planName;
-}
+};
 
 FitnessPlan.getType = function(){
 	return type;
-}
+};
 
 FitnessPlan.getDescription = function(){
 	return description;
-}
+};
 
 FitnessPlan.getRating = function(){
 	return rating;
-}
+};
 
 //Add every plan that is stored/added to the fitness page
 var planCount = 0;
@@ -38,8 +38,12 @@ function addPlan(isExercise, planName, type, description, rating){
 
 FitnessPlan.getPlanCount = function(){
 	return planCount;
-}
+};
 
 //add default plans
 addPlan(true, "Ryan's One-Month Plan to Strengthen Your Chest", "upperBody", null, null);
 addPlan(true, "How to Build Traps", "weightLoss", null, null);
+
+function uploadPlans(){
+	
+}
