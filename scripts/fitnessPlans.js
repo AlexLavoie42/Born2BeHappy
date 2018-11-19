@@ -26,3 +26,7 @@ FitnessPlan.getDescription = function(){
 FitnessPlan.getVideo = function(){
 	return video;
 }
+
+//Add every plan that is stored/added to the fitness page
+var planCount = 0;
+var plan = new Array();
