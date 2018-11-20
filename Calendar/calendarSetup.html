@@ -5,6 +5,15 @@
     <meta charset="utf-8"/>
     <style>
 	h1 {
+		verticle-align: middle;
+	}
+	.header { 
+		text-align: center;
+		background-color:  black;
+		color: white;
+		height: 70px;
+	}
+	h2 {
 		text-align: center;
 	}
 	table {
@@ -24,14 +33,28 @@
 		text-align: right;
 		vertical-align: top;
 	}
+	#cell {	
+	}
+	button {
+		width: 100px;
+		height: 70px;
+		background: transparent; 
+		border: none !important;
+		text-align: right;
+		
+	}
+	#num {
+		position: relative;
+		top: -25px;
+	}
 	
     </style>
   </head>
   <body>
-	<h1>
+	<div class= "header"><h1>
 	Calendar Setup
-	</h1>
-	<h2>Click or click and drag to select days you want to work on your goal.
+	</div></h1>
+	<h2>Select days you want to work on your goal.
 	</h2>
 	<table>
 		<tr>
@@ -47,23 +70,64 @@
 			<td>sat</td>
 		</tr>
 		<tr id = "days">
-			<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>1</td>
+			<td><button type = "button"><div id = "numOut">25</div></button></td>
+			<td ><button type = "button"><div id = "numOut">26</div></button></td>
+			<td><button type = "button"><div id = "num">27</div></button></td>
+			<td><button type = "button"><div id = "num">28</div></button></td>
+			<td><button type = "button"><div id = "num">29</div></button></td>
+			<td><button type = "button"><div id = "num">30</div></button></td>
+			<td><button type = "button"><div id = "num">1</div></button></td>
 		</tr>
 		<tr id = "days">
-			<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+			<td><button type = "button"><div id = "num">2</div></button></td>
+			<td><button type = "button"><div id = "num">3</div></button></td>
+			<td><button type = "button"><div id = "num">4</div></button></td>
+			<td><button type = "button"><div id = "num">5</div></button></td>
+			<td><button type = "button"><div id = "num">6</div></button></td>
+			<td><button type = "button"><div id = "num">7</div></button></td>
+			<td><button type = "button"><div id = "num">8</div></button></td>
 		</tr>
 		<tr id = "days">
-			<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
-		</tr>
-		<tr id = "days">
-			<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
-		</tr>
-		<tr id = "days">
-			<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
-		</tr>
-		<tr id = "days">
-			<td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+			<td><button type = "button"><div id = "num">9</div></button></td>
+			<td><button type = "button"><div id = "num">10</div></button></td>
+			<td><button type = "button"><div id = "num">11</div></button></td>
+			<td><button type = "button"><div id = "num">12</div></button></td>
+			<td><button type = "button"><div id = "num">13</div></button></td>
+			<td><button type = "button"><div id = "num">14</div></button></td>
+			<td><button type = "button"><div id = "num">15</div></button></td>
+		</tr>                           
+		<tr id = "days">                
+			<td><button type = "button"><div id = "num">16</div></button></td>
+			<td><button type = "button"><div id = "num">17</div></button></td>
+			<td><button type = "button"><div id = "num">18</div></button></td>
+			<td><button type = "button"><div id = "num">19</div></button></td>
+			<td><button type = "button"><div id = "num">20</div></button></td>
+			<td><button type = "button"><div id = "num">21</div></button></td>
+			<td><button type = "button"><div id = "num">22</div></button></td>
+		</tr>                           
+		<tr id = "days">                
+			<td><button type = "button"><div id = "num">23</div></button></td>
+			<td><button type = "button"><div id = "num">24</div></button></td>
+			<td><button type = "button"><div id = "num">25</div></button></td>
+			<td><button type = "button"><div id = "num">26</div></button></td>
+			<td><button type = "button"><div id = "num">28</div></button></td>
+			<td><button type = "button"><div id = "num">29</div></button></td>
+			<td><button type = "button"><div id = "num">30</div></button></td>
+		</tr>                                             
+		<tr id = "days">                                  
+			<td><button type = "button"><div id = "num">30</div></button></td>
+			<td><button type = "button"><div id = "num">31</div></button></td>
+			<td><button type = "button"><div id = "num">1</div></button></td>
+			<td><button type = "button"><div id = "num">2</div></button></td>
+			<td><button type = "button"><div id = "num">3</div></button></td>
+			<td><button type = "button"><div id = "num">4</div></button></td>
+			<td><button type = "button"><div id = "num">5</div></button></td>
 		</tr>
 	  </table> 
+
+  
+  
   </body>
+  <script>
+  </script>
 </html>
