@@ -1,85 +1,61 @@
-/* This file contains the fitness plan object */
-function FitnessPlan(isExercise, planName, type, description, rating){
+/*This js file contains the fitness plan object */
+function FitnessPlan(isExercise, type, name, rating, description){
 	this.isExercise = isExercise;
-	this.planName = planName;
 	this.type = type;
-	this.description = description;
+	this.name = name;
 	this.rating = rating;
+	this.description = description;
 }
 
 FitnessPlan.getIsExercise = function(){
 	return isExercise;
-};
-
-FitnessPlan.getPlanName = function(){
-	return planName;
-};
+}
 
 FitnessPlan.getType = function(){
 	return type;
-};
+}
 
-FitnessPlan.getDescription = function(){
-	return description;
-};
+FitnessPlan.getName = function(){
+	return name;
+}
 
 FitnessPlan.getRating = function(){
 	return rating;
-};
+}
 
-//Add every plan that is stored/added to the fitness page
+FitnessPlan.getDescription = function(){
+	return description;
+}
+
 var planCount = 0;
 var plan = new Array();
 
-function addPlan(isExercise, planName, type, description, rating){
-	plan[planCount] = new FitnessPlan(isExercise, planName, type, description, rating);
+function savePlan(isExercise, type, name, rating, description){
+	plan[planCount] = new FitnessPlan(isExercise, type, name, rating, description);
 	planCount++;
 }
 
-FitnessPlan.getPlanCount = function(){
-	return planCount;
-};
+savePlan(true, "upperBody", "Ryan's One-month Plan to Build Traps", "10/10", null);
+savePlan(true, "upperBody", "How to Get a Bigger Chest", "9/10", null);
 
-//add default plans
-addPlan(true, "Ryan's One-Month Plan to Strengthen Your Chest", "upperBody", null, null);
-addPlan(true, "How to Build Traps", "weightLoss", null, null);
+var inputPlan = document.getElementById("inputPlan");
 
-function uploadPlans(){
-	
+function uploadPlan(planIndex){
+	inputPlan.innerHTML += "<tr><td><h3>"
+	+ plan[planIndex].name + "</h3><br />"
+	+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+	+ "</td><td><h2>" + plan[planIndex].rating
+	+ "</h2></td></tr>";
 }
+uploadPlan(0);
 
-//Update the sections with the user's click
-var isExercise = true;
-var planType = 0;
-
-var exercise = document.getElementById("exercise");
-var meal = document.getElementById("meal");
-
-var type1 = document.getElementById("type1");
-var type2 = document.getElementById("type2");
-var type3 = document.getElementById("type3");
-
-exercise.style.backgroundColor = "yellow";
-
-function switchSection(i){
-	//if the user selects exercise
-	if(i == 0){
-		exercise.style.backgroundColor = "yellow";
-		meal.style.backgroundColor = "transparent";
-		
-		type1.innerHTML = "Upper-body";
-		type2.innerHTML = "Lower-body";
-		type3.innerHTML = "Cardio";
-		
-		isExercise = true;
-	} else {//if the user selects meal
-		exercise.style.backgroundColor = "transparent";
-		meal.style.backgroundColor = "yellow";
-		
-		type1.innerHTML = "Weight-loss";
-		type2.innerHTML = "Bulk-up";
-		type3.innerHTML = "Pre-workout";
-		
-		isExercise = false;
+//updates the fitness section page; when the user switches section or type, this function updates it
+function update(){
+	for(let n = 0; n < planCount; n++){
+		if(plan[n].isExercise){
+			
+		} else {
+			
+		}
 	}
 }
