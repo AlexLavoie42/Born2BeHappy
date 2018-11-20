@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Fitness Plan</title>
+<link rel="stylesheet" type="text/css" href="../scripts/mainCss.css" />
+<style>
+#goBack{
+	position: absolute;
+	top: 15pt;
+	left: 10pt;
+	text-decoration: none;
+	color: white;
+	font-size: 20pt;
+	border: solid white 3pt;
+}
+</style>
+</head>
+
+<body>
+<a id="goBack" href="fitness_plan.html">Fitness Plans</a>
+<div id="content"></div>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script src="../scripts/firebase_setup.js"></script>
+<script>
+var viewPlanContent = document.getElementById("content");
+
+var db = firebase.firestore();
+var fitness = db.collection("fitness");
+var planViewed = fitness.doc("planViewed");
+
+var getPlanName;
+var getPlanContent;
+
+planViewed.get().then(function(doc) {
+    if (doc.exists) {
+        getPlanName = doc.data();
+		viewPlanContent.innerHTML = "<h1>" + getPlanName.name + "</h1>";
+		
+		//Based on the plan name, collect data
+		fitness.doc(getPlanName.name).get().then(function(doc){
+			if(doc.exists){
+				getPlanContent = doc.data();
+				var viewPlanType = (getPlanContent.isExercise) ? "Exercise" : "Meal";
+				viewPlanContent.innerHTML += "<h3>Plan type: " + viewPlanType + "</h3>"
+				+ "<h3>Category: " + getPlanContent.exerciseType + "</h3>"
+				+ "<h3>Description</h3><p>" + getPlanContent.description + "</p>"
+				+ "<h3>Rating: " + getPlanContent.rating + "</h3>";
+			}
+		});
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+</script>
+</body>
+</html>

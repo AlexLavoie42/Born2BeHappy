@@ -35,10 +35,11 @@
 
 <script src="../scripts/fitnessPlans.js"></script>
 <script src="../scripts/fitnessSection.js"></script>
-<script src="../scripts/firebase_setup.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script src="../scripts/firebase_setup.js"></script>
 <script>
 type1.style.backgroundColor = "yellow";
+var database = firebase.firestore();
 
 function switchType(i){
 	if(i == 0){

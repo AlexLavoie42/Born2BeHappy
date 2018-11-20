@@ -4,6 +4,17 @@
 <head>
 <title>Create Your Plan</title>
 <style type="text/css">
+#goBack{
+	text-decoration: none;
+	color: white;
+	font-size: 20pt;
+	font-weight: 900;
+	position: absolute;
+	top: 10pt;
+	left: 10pt;
+	border: solid white 3pt;
+	padding: 2pt;
+}
 </style>
 <link href="../scripts/mainCss.css" rel="stylesheet" type="text/css" />
 </head>
@@ -47,12 +58,14 @@ Description
 <input type="button" type="clear" value="Clear" />
 </form>
 
+<a id="goBack" href="fitness_plan.html">Cancel Plan</a>
+
 <script src="../scripts/fitnessPlans.js"></script>
 <script src="../scripts/fitnessSection.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script src="../scripts/firebase_setup.js"></script>
 <script>
-var database = firebase.database();
+var database = firebase.firestore();
 document.getElementById("uploadPlan").onclick = function(){
 	var exerciseSubmittedType;
 	var submittedIsExercise;
@@ -75,10 +88,17 @@ document.getElementById("uploadPlan").onclick = function(){
 		description : document.getElementById("description").value,
 		exerciseType : exerciseSubmittedType,
 		isExercise : submittedIsExercise,
-		planName : document.getElementById("planName").value,
 		rating : "Unrated"
 	};
-	database.collection('fitness').doc('planInfo').add(userPlan);
+	database.collection('fitness').doc(document.getElementById("planName").value).set(userPlan);
+	
+	var planViewed = {
+		name: document.getElementById("planName").value
+	};
+	database.collection('fitness').doc('planViewed').set(planViewed).then(function() {
+		document.location.href = "viewPlan.html";
+	});
+	
 };
 </script>
 </body>

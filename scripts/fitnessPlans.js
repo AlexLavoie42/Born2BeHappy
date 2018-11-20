@@ -44,37 +44,37 @@ var inputPlan = document.getElementById("inputPlan");
 function uploadPlan(planIndex){
 	for(let u = 0; u < planCount; u++){
 		if(plan[u].type == "upperBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 		} else if(plan[u].type == "weightLoss" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 		} else if(plan[u].type == "bulkUp" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
