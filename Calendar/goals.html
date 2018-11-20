@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../scripts/goals_layout.css"/>
+        <script src="../scripts/firebase_setup.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 	</head>
 	
 	<body>
@@ -10,7 +12,12 @@
 		</header>
 		
 		<div id="goals">
-			<input type="text"/>
+			<input id="goal" type="text"/>
+			<input onClick="addGoal()" type="submit"/>
+		</div>
+		
+		<div id="addedGoals">
+			
 		</div>
 		
 		<div id="recommendations">
@@ -20,5 +27,7 @@
 		<footer>
 			<input class="button" type="button" value="Calendar"/>
 		</footer>
+		
+		<script src="../scripts/goals.js"></script>
 	</body>
 </html>

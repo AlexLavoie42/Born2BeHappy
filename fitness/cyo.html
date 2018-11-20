@@ -6,6 +6,7 @@
 <style type="text/css">
 </style>
 <link href="../scripts/mainCss.css" rel="stylesheet" type="text/css" />
+<script src="../scripts/fitnessPlans.js"></script>
 </head>
 
 <body>
@@ -49,37 +50,5 @@ Description
 
 <script src="../scripts/fitnessPlans.js"></script>
 <script src="../scripts/fitnessSection.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-<script src="../scripts/firebase_setup.js"></script>
-<script>
-var database = firebase.database();
-document.getElementById("uploadPlan").onclick = function(){
-	var exerciseSubmittedType;
-	var submittedIsExercise;
-	if(sectionSelected == 0 && typeSelected == 0)
-		exerciseSubmittedType = "upperBody";
-	else if(sectionSelected == 0 && typeSelected == 1)
-		exerciseSubmittedType = "lowerBody";
-	else if(sectionSelected == 0 && typeSelected == 2)
-		exerciseSubmittedType = "cardio";
-	else if(sectionSelected == 1 && typeSelected == 0)
-		exerciseSubmittedType = "weightLoss";
-	else if(sectionSelected == 1 && typeSelected == 1)
-		exerciseSubmittedType = "bulkUp";
-	else if(sectionSelected == 1 && typeSelected == 2)
-		exerciseSubmittedType = "preWorkout";
-		
-	submittedIsExercise = (sectionSelected == 0) ? true : false;
-		
-	var userPlan = {
-		description : document.getElementById("description").value,
-		exerciseType : exerciseSubmittedType,
-		isExercise : submittedIsExercise,
-		planName : document.getElementById("planName").value,
-		rating : "Unrated"
-	};
-	database.collection('fitness').doc('planInfo').add(userPlan);
-};
-</script>
 </body>
 </html>
