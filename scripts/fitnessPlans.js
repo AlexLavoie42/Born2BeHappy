@@ -35,27 +35,82 @@ function savePlan(isExercise, type, name, rating, description){
 	planCount++;
 }
 
+//save the default plans
 savePlan(true, "upperBody", "Ryan's One-month Plan to Build Traps", "10/10", null);
 savePlan(true, "upperBody", "How to Get a Bigger Chest", "9/10", null);
 
 var inputPlan = document.getElementById("inputPlan");
 
 function uploadPlan(planIndex){
-	inputPlan.innerHTML += "<tr><td><h3>"
-	+ plan[planIndex].name + "</h3><br />"
-	+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-	+ "</td><td><h2>" + plan[planIndex].rating
-	+ "</h2></td></tr>";
+	for(let u = 0; u < planCount; u++){
+		if(plan[u].type == "upperBody" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		} else if(plan[u].type == "weightLoss" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		} else if(plan[u].type == "bulkUp" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
+			inputPlan.innerHTML += "<tr><td><h3>"
+			+ plan[u].name + "</h3><br />"
+			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
+			+ "</td><td><h2>" + plan[u].rating
+			+ "</h2></td></tr>";
+		}
+	}
 }
-uploadPlan(0);
+uploadPlan("upperBody");
+
+function clearPlan(){
+	inputPlan.innerHTML = "";
+}
 
 //updates the fitness section page; when the user switches section or type, this function updates it
 function update(){
-	for(let n = 0; n < planCount; n++){
-		if(plan[n].isExercise){
-			
+	if(sectionSelected == 0){
+		if(typeSelected == 0){
+			clearPlan();
+			uploadPlan("upperBody");
+		} else if(typeSelected == 1){
+			clearPlan();
+			uploadPlan("lowerBody");
 		} else {
-			
+			clearPlan();
+			uploadPlan("cardio");
+		}
+	} else {
+		if(typeSelected == 0){
+			clearPlan();
+			uploadPlan("weightLoss");
+		} else if(typeSelected == 1){
+			clearPlan();
+			uploadPlan("bulkUp");
+		} else {
+			clearPlan();
+			uploadPlan("preWorkout");
 		}
 	}
 }
