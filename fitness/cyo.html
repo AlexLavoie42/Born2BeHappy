@@ -70,26 +70,29 @@ var database = firebase.firestore();
 document.getElementById("uploadPlan").onclick = function(){
 	var exerciseSubmittedType;
 	var submittedIsExercise;
-	if(sectionSelected == 0 && typeSelected == 0)
-		exerciseSubmittedType = "upperBody";
-	else if(sectionSelected == 0 && typeSelected == 1)
-		exerciseSubmittedType = "lowerBody";
-	else if(sectionSelected == 0 && typeSelected == 2)
-		exerciseSubmittedType = "cardio";
-	else if(sectionSelected == 1 && typeSelected == 0)
-		exerciseSubmittedType = "weightLoss";
-	else if(sectionSelected == 1 && typeSelected == 1)
-		exerciseSubmittedType = "bulkUp";
-	else if(sectionSelected == 1 && typeSelected == 2)
-		exerciseSubmittedType = "preWorkout";
-		
+	
 	submittedIsExercise = (sectionSelected == 0) ? true : false;
+	var exerciseSubmittedTypeValue = document.getElementById("exerciseType").value;
+	if(exerciseSubmittedTypeValue == "Upper-body")
+		exerciseSubmittedType = "upperBody";
+	else if(exerciseSubmittedTypeValue == "Lower-body")
+		exerciseSubmittedType = "lowerBody";
+	else if(exerciseSubmittedTypeValue == "Cardio")
+		exerciseSubmittedType = "cardio";
+	else if(exerciseSubmittedTypeValue == "Weight-loss")
+		exerciseSubmittedType = "weightLoss";
+	else if(exerciseSubmittedTypeValue == "Bulk-up")
+		exerciseSubmittedType = "bulkUp";
+	else if(exerciseSubmittedTypeValue == "Pre-workout")
+		exerciseSubmittedType = "preWorkout";
+	//define exerciseSubmittedType and submittedIsExercise
 		
 	var userPlan = {
 		description : document.getElementById("description").value,
 		exerciseType : exerciseSubmittedType,
 		isExercise : submittedIsExercise,
-		rating : "Unrated"
+		rating : "Unrated",
+		name : document.getElementById("planName").value
 	};
 	database.collection('fitness').doc(document.getElementById("planName").value).set(userPlan);
 	

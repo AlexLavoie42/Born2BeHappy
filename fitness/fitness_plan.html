@@ -61,6 +61,20 @@ function switchType(i){
 	
 	update();
 }
+
+var collectedPlan = new Array();
+
+database.collection("fitness").where("rating", "==", "Unrated").get()
+.then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+			console.log(doc.data());
+			savePlan(doc.data().isExercise, doc.data().exerciseType, doc.data().name, doc.data().rating, doc.data().description);
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
 </script>
 </body>
 </html>

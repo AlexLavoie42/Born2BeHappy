@@ -9,23 +9,23 @@ function FitnessPlan(isExercise, type, name, rating, description){
 
 FitnessPlan.getIsExercise = function(){
 	return isExercise;
-}
+};
 
 FitnessPlan.getType = function(){
 	return type;
-}
+};
 
 FitnessPlan.getName = function(){
 	return name;
-}
+};
 
 FitnessPlan.getRating = function(){
 	return rating;
-}
+};
 
 FitnessPlan.getDescription = function(){
 	return description;
-}
+};
 
 var planCount = 0;
 var plan = new Array();
@@ -73,7 +73,7 @@ function uploadPlan(planIndex){
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
+		} else if(plan[u].type == "preWorkout" && plan[u].type == planIndex){
 			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
