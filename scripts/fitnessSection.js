@@ -33,5 +33,4 @@ function switchSection(i){
 	}
 	
 	update();
-	console.log(sectionSelected);
 }
