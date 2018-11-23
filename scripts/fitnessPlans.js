@@ -44,10 +44,10 @@ var planName;
 function uploadPlan(planIndex){
 	for(let u = 0; u < planCount; u++){
 		if(plan[u].type == "upperBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
