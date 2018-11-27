@@ -17,7 +17,7 @@
 		width: 200px;
 	
 	}
-	#days td {
+	.days{
 		width: 140px;
 		height: 98px;
 		text-align: right;
@@ -51,7 +51,7 @@
 		height: 32px;
 		background-color: #1A5276;
 	}
-	#out {
+	.out {
 		color: #B3B6B7;
 	}
 	
@@ -69,22 +69,22 @@
 			<td class = "goals">Goals</td>
 		  </tr>
 		  <tr>
-			<td class = "g"></td>
+			<td class = "g" id="goal1"></td>
 		  </tr>
 		  <tr>
-			<td class = "g"></td>
+			<td class = "g" id="goal2"></td>
 		  </tr>
 		  <tr>
-			<td class = "g"></td>
+			<td class = "g" id="goal3"></></td>
 		  </tr>
 		  <tr> 
-			<td class = "g"></td>
+			<td class = "g" id="goal4"></></td>
 		  </tr>
 		  <tr> 
-			<td class = "g"></td>
+			<td class = "g" id="goal5"></></td>
 		  </tr>
 		  <tr>
-			<td class = "g"></td>
+			<td class = "g" id="goal6"></></td>
 		  </tr>
 	  </table>
 	  <table id ="calendar">
@@ -103,28 +103,177 @@
 			<td>fri</td>
 			<td>sat</td>
 		</tr>
-		<tr id = "days">
-			<td id = "out">25</td><td id = "out">26</td><td id = "out">27</td><td id = "out">28</td><td id = "out">29</td><td id = "out">30</td><td>1</td>
+		<tr>
+			<td class = "out">25</td><td class = "out">26</td><td class = "out">27</td><td class = "out">28</td><td class = "out">29</td><td class = "out">30</td><td class="days">1</td>
 		</tr>
-		<tr id = "days">
-			<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+		<tr>
+			<td class="days">2</td><td class="days">3</td><td class="days">4</td><td class="days">5</td><td class="days">6</td><td class="days">7</td><td class="days">8</td>
 		</tr>
-		<tr id = "days">
-			<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+		<tr>
+			<td class="days">9</td><td class="days">10</td><td class="days">11</td><td class="days">12</td><td class="days">13</td><td class="days">14</td><td class="days">15</td>
 		</tr>
-		<tr id = "days">
-			<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+		<tr>
+			<td class="days">16</td><td class="days">17</td><td class="days">18</td><td class="days">19</td><td class="days">20</td><td class="days">21</td><td class="days">22</td>
 		</tr>
-		<tr id = "days">
-			<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+		<tr>
+			<td class="days">23</td><td class="days">24</td><td class="days">25</td><td class="days">26</td><td class="days">27</td><td class="days">28</td><td class="days">29</td>
 		</tr>
-		<tr id = "days">
-			<td>30</td><td>31</td><td id = "out">1</td><td id = "out">2</td><td id = "out">3</td><td id = "out">4</td><td id = "out">5</td>
+		<tr>
+			<td class="days">30</td><td class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
 	  </table> 
 	  <script>
+		var goal1 = document.getElementById("goal1");
+		var goal2 = document.getElementById("goal2");
+		var goal3 = document.getElementById("goal3");
+		var goal4 = document.getElementById("goal4");
+		var goal5 = document.getElementById("goal5");
+		var goal6 = document.getElementById("goal6");
 	  
-			  
+		//the goals that are able to be selected from the goals table
+		var availableGoals = {
+			//these variables are the colors that have a possibility of being on the table
+			c1: "red",
+			c2: "green",
+			c3: "blue",
+			c4: "yellow",
+			c5: "magenta",
+			c6: "orange",
+			
+			//these variables determine if the goals are available
+			canSelect1: true,
+			canSelect2: true,
+			canSelect3: true,
+			canSelect4: true,
+			canSelect5: true,
+			canSelect6: true,
+			
+			/* These variables determine if one of the goals from the goal table is selected.
+			Only one goal can be selected at a time. If the user clicks on a day while a goal is
+			selected, that day will contain the same color as the selected goal. */
+			isSelected1: false,
+			isSelected2: false,
+			isSelected3: false,
+			isSelected4: false,
+			isSelected5: false,
+			isSelected6: false,
+			
+			selectGoal: function(goalNum){
+				isSelected1 = false;
+				isSelected2 = false;
+				isSelected3 = false;
+				isSelected4 = false;
+				isSelected5 = false;
+				isSelected6 = false;
+				
+				goal1.style.border = "none";
+				goal2.style.border = "none";
+				goal3.style.border = "none";
+				goal4.style.border = "none";
+				goal5.style.border = "none";
+				goal6.style.border = "none";
+				
+				switch(goalNum){
+					case 0:
+					isSelected1 = true;
+					goal1.style.border = "solid white 2px";
+					break;
+					case 1:
+					isSelected2 = true;
+					goal2.style.border = "solid white 2px";
+					break;
+					case 2:
+					isSelected3 = true;
+					goal3.style.border = "solid white 2px";
+					break;
+					case 3:
+					isSelected4 = true;
+					goal4.style.border = "solid white 2px";
+					break;
+					case 4:
+					isSelected5 = true;
+					goal5.style.border = "solid white 2px";
+					break;
+					case 5:
+					isSelected6 = true;
+					goal6.style.border = "solid white 2px";
+					break;
+					default:
+					console.log("Error: the parameter can have numbers 0-5");
+				}
+			}
+		};
+		
+		//add a firebase method to get the available goals that the user selected
+		
+		if(availableGoals.canSelect1)
+			goal1.style.backgroundColor = availableGoals.c1;
+		if(availableGoals.canSelect2)
+			goal2.style.backgroundColor = availableGoals.c2;
+		if(availableGoals.canSelect3)
+			goal3.style.backgroundColor = availableGoals.c3;
+		if(availableGoals.canSelect4)
+			goal4.style.backgroundColor = availableGoals.c4;
+		if(availableGoals.canSelect5)
+			goal5.style.backgroundColor = availableGoals.c5;
+		if(availableGoals.canSelect6)
+			goal6.style.backgroundColor = availableGoals.c6;
+	  
+		function day(dayNum){
+			this.dayNum = dayNum;
+			this.colors = new Array();
+			this.colorNum = 0;//the number of colors in the colors array
+			this.addColor = function(color){
+				//check if the day can contain the color. If the goal is available, it can
+				if((color == availableGoals.c1 && availableGoals.canSelect1)
+				|| (color == availableGoals.c2 && availableGoals.canSelect2)
+				|| (color == availableGoals.c3 && availableGoals.canSelect3)
+				|| (color == availableGoals.c4 && availableGoals.canSelect4)
+				|| (color == availableGoals.c5 && availableGoals.canSelect5)
+				|| (color == availableGoals.c6 && availableGoals.canSelect6)){
+					this.colors[this.colorNum++] = color;
+					console.log(this.colors);
+				} else {
+					console.log("Error: Day #" + this.dayNum + " can't contain the color " + color);
+				}
+			};
+		}
+		
+		var days = new Array();
+		for(let i = 0; i < 31; i++){
+			days[i] = new day(i + 1);
+		}
+		
+		var dayElement = document.getElementsByClassName("days");
+		dayElement.addEventListener('click' highlightSelectedDays);
+		function highlightSelectedDays(){
+			console.log("A calendar day was selected");
+		}
+		
+		goal1.addEventListener('click', function(){
+			availableGoals.selectGoal(0);
+			highlightSelectedDays();
+		});
+		goal2.addEventListener('click', function(){
+			availableGoals.selectGoal(1);
+			highlightSelectedDays();
+		});
+		goal3.addEventListener('click', function(){
+			availableGoals.selectGoal(2);
+			highlightSelectedDays();
+		});
+		goal4.addEventListener('click', function(){
+			availableGoals.selectGoal(3);
+			highlightSelectedDays();
+		});
+		goal5.addEventListener('click', function(){
+			availableGoals.selectGoal(4);
+			highlightSelectedDays();
+		});
+		goal6.addEventListener('click', function(){
+			availableGoals.selectGoal(5);
+			highlightSelectedDays();
+		});
 	  </script>
   </body>
   
