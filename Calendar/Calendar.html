@@ -123,13 +123,42 @@
 		</tr>
 	  </table> 
 	  <script>
+		//the goals that are able to be selected from the goals table
+		var availableGoals = {
+			//these variables are the colors that have a possibility of being on the table
+			c1: "red",
+			c2: "green",
+			c3: "blue",
+			c4: "yellow",
+			c5: "magenta",
+			c6: "orange",
+			
+			//these variables determine if the goals are available
+			canSelect1: false,
+			canSelect2: false,
+			canSelect3: false,
+			canSelect4: false,
+			canSelect5: false,
+			canSelect6: false
+		};
+	  
 		function day(dayNum){
 			this.dayNum = dayNum;
 			this.colors = new Array();
 			this.colorNum = 0;//the number of colors in the colors array
 			this.addColor = function(color){
-				this.colors[this.colorNum++] = color;
-				console.log(this.colors);
+				//check if the day can contain the color. If the goal is available, it can
+				if((color == availableGoals.c1 && availableGoals.canSelect1)
+				|| (color == availableGoals.c2 && availableGoals.canSelect2)
+				|| (color == availableGoals.c3 && availableGoals.canSelect3)
+				|| (color == availableGoals.c4 && availableGoals.canSelect4)
+				|| (color == availableGoals.c5 && availableGoals.canSelect5)
+				|| (color == availableGoals.c6 && availableGoals.canSelect6)){
+					this.colors[this.colorNum++] = color;
+					console.log(this.colors);
+				} else {
+					console.log("Error: Day #" + this.dayNum + " can't contain the color " + color);
+				}
 			};
 		}
 		
