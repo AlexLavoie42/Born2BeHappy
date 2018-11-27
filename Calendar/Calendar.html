@@ -17,7 +17,7 @@
 		width: 200px;
 	
 	}
-	#days td {
+	.days td {
 		width: 140px;
 		height: 98px;
 		text-align: right;
@@ -51,7 +51,7 @@
 		height: 32px;
 		background-color: #1A5276;
 	}
-	#out {
+	.out {
 		color: #B3B6B7;
 	}
 	
@@ -103,28 +103,40 @@
 			<td>fri</td>
 			<td>sat</td>
 		</tr>
-		<tr id = "days">
-			<td id = "out">25</td><td id = "out">26</td><td id = "out">27</td><td id = "out">28</td><td id = "out">29</td><td id = "out">30</td><td>1</td>
+		<tr class = "days">
+			<td class = "out">25</td><td class = "out">26</td><td class = "out">27</td><td class = "out">28</td><td class = "out">29</td><td class = "out">30</td><td>1</td>
 		</tr>
-		<tr id = "days">
+		<tr class = "days">
 			<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
 		</tr>
-		<tr id = "days">
+		<tr class = "days">
 			<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
 		</tr>
-		<tr id = "days">
+		<tr class = "days">
 			<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
 		</tr>
-		<tr id = "days">
+		<tr class = "days">
 			<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
 		</tr>
-		<tr id = "days">
-			<td>30</td><td>31</td><td id = "out">1</td><td id = "out">2</td><td id = "out">3</td><td id = "out">4</td><td id = "out">5</td>
+		<tr class = "days">
+			<td>30</td><td>31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
 	  </table> 
 	  <script>
-	  
-			  
+		function day(dayNum){
+			this.dayNum = dayNum;
+			this.colors = new Array();
+			this.colorNum = 0;//the number of colors in the colors array
+			this.addColor = function(color){
+				this.colors[this.colorNum++] = color;
+				console.log(this.colors);
+			};
+		}
+		
+		var days = new Array();
+		for(let i = 0; i < 31; i++){
+			days[i] = new day(i + 1);
+		}
 	  </script>
   </body>
   
