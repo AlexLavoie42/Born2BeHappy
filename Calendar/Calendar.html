@@ -13,17 +13,49 @@
 	table td {
 		border: solid 1px black;
 	}
-	#menu td {
-		width: 100px;
-		height: 50px;
-		
+	#menu {
+		width: 200px;
+	
 	}
 	#days td {
-		width: 100px;
-		height: 70px;
+		width: 140px;
+		height: 98px;
 		text-align: right;
 		vertical-align: top;
 	}
+	#weekdays {
+		text-align: center;
+	}
+	#topHead {
+		text-align: center;
+		height: 50px;
+		color: white;
+		background-color: black;
+		font-size: 45px;
+	}
+	#month {
+		text-align: center;
+		height: 30px;
+		font-size: 20px;
+	}
+	.goals {
+		height: 60px;
+		width: 200px;
+		font-size: 25px;	
+	}
+	.g {
+		height: 100px;
+		width: 200px;
+	}
+	.stub {
+		height: 32px;
+		background-color: #1A5276;
+	}
+	#out {
+		color: #B3B6B7;
+	}
+	
+	
 	
 	
     </style>
@@ -31,33 +63,36 @@
   <body>
 	  <table id = "menu">
 		  <tr>
-			<td>Goals</td>
+			<td class = "stub"></td>
 		  </tr>
 		  <tr>
-			<td></td>
+			<td class = "goals">Goals</td>
 		  </tr>
 		  <tr>
-			<td></td>
+			<td class = "g"></td>
 		  </tr>
 		  <tr>
-			<td></td>
+			<td class = "g"></td>
+		  </tr>
+		  <tr>
+			<td class = "g"></td>
 		  </tr>
 		  <tr> 
-			<td></td>
+			<td class = "g"></td>
 		  </tr>
 		  <tr> 
-			<td></td>
+			<td class = "g"></td>
 		  </tr>
 		  <tr>
-			<td>progress bar</td>
+			<td class = "g"></td>
 		  </tr>
 	  </table>
 	  <table id ="calendar">
 		<tr>
-			<td colspan = "7">Calendar</td>
+			<td id = "topHead" colspan = "7">Calendar</td>
 		</tr>
 		<tr>
-			<td colspan = "7">December 2018</td>
+			<td id = "month" colspan = "7">December 2018</td>
 		</tr>
 		<tr id = "weekdays">
 			<td>sun</td>
@@ -69,7 +104,7 @@
 			<td>sat</td>
 		</tr>
 		<tr id = "days">
-			<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>1</td>
+			<td id = "out">25</td><td id = "out">26</td><td id = "out">27</td><td id = "out">28</td><td id = "out">29</td><td id = "out">30</td><td>1</td>
 		</tr>
 		<tr id = "days">
 			<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
@@ -84,7 +119,7 @@
 			<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
 		</tr>
 		<tr id = "days">
-			<td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+			<td>30</td><td>31</td><td id = "out">1</td><td id = "out">2</td><td id = "out">3</td><td id = "out">4</td><td id = "out">5</td>
 		</tr>
 	  </table> 
 	  <script>
