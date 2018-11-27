@@ -304,6 +304,38 @@
 			availableGoals.selectGoal(5);
 			highlightSelectedDays();
 		});
+		
+		//an array for each color containing the checkoffs
+		var redChecked = new Array();
+		var greenChecked = new Array();
+		var blueChecked = new Array();
+		var yellowChecked = new Array();
+		var magentaChecked = new Array();
+		var orangeChecked = new Array();
+		
+		for(let i = 0; i < 31; i++){
+			redChecked[i] = false;
+			greenChecked[i] = false;
+			blueChecked[i] = false;
+			yellowChecked[i] = false;
+			magentaChecked[i] = false;
+			orangeChecked[i] = false;
+		}
+		
+		function dayCheckedOff(event){
+			var dayClicked = event.target.innerText;
+			
+			for(let i = 0; i < 31; i++){
+				if(availableGoals.isSelected1){
+					redChecked[i] = (redChecked[i]) ? false : true;
+					console.log("Day #" + i + " was changed to " + redChecked[i]);
+				}
+			}
+		}
+		
+		for(let i = 0; i < 31; i++){
+			document.getElementById("day" + (i + 1)).addEventListener('click', dayCheckedOff);
+		}
 	  </script>
   </body>
   
