@@ -3,6 +3,13 @@
   <head>
 	<title>Born 2 Be Happy</title>
 	<link rel="stylesheet" href="./scripts/homepage_layout.css"/>
+	<script>
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				window.location.replace("./Calendar/Calendar.html");
+			}
+		});
+	</script>
   </head>
   
   <body>
