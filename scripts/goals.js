@@ -3,43 +3,64 @@ var goal = document.getElementById("goal");
 var addedGoals = document.getElementById("addedGoals");
 var goals = [];
 var goalDoc;
-var goalSize = 0;
+const goalLimit = 6;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {
     window.location.replace("../sign-in.html");
+  } else {
+	getGoals();
   }
 });
 
 
-function addGoal(){
+
+function getGoals(){
 	goalDoc = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
 	goalDoc.get().then(function(doc) {
     if (doc.exists) {
-        goalSize = doc.get("goalSize");
+		goals = Object.values(doc.data());
+		for(i = 0; i < goals.length; i++) {
+			displayGoal(i);
+		}
     } else {
         console.log("Can't find user DB");
     }
  	}).catch(function(error) {
  	    console.log("Error getting document:", error);
- 	});
-	if(!goals.includes(goal.value)){
-		goals.push(goal.value);
-		displayGoal();
+	});
+}
+
+function addGoal(){
+	 	if(!goals.includes(goal.value) && (goal.value.length === 0 || !goal.value.trim() || goal.value)){
+			goals.push(goal.value);
+			displayGoal((goals.length - 1));
+			saveGoal((goals.length - 1));
+		}
+}
+
+function displayGoal(goalNum) {
+	if(goals.length <= 6){
+		var goalP = document.createElement("P");
+		var goalText = document.createTextNode(goals[goalNum]);
+		goal.value = "";
+		goalP.appendChild(goalText);
+		document.getElementById("addedGoals").appendChild(goalP);
 	}
+	
 }
 
-function displayGoal(goalText) {
-	var goalP = document.createElement("P");
-	var goalText = document.createTextNode(goal.value);
-	goal.value = "";
-	goalP.appendChild(goalText);
-	document.getElementById("addedGoals").appendChild(goalP);
-	saveGoals();
+function saveGoal(goalNum){
+	goalDoc.update({[goalNum + 1]:goals[goalNum]});
 }
 
-function saveGoals(){
-	goalSize++
-	goalDoc.update({[goalSize]:goals[goalSize - 1]})
-	goalDoc.update({goalSize:goalSize});
+function clearGoals(){
+	for(i = 0; i < goals.length; i++){
+		goalDoc.update({[i + 1]:firebase.firestore.FieldValue.delete()});
+	}
+	goals = [];
+	var goalText = document.getElementById("addedGoals");
+	while(goalText.firstChild){
+		goalText.removeChild(goalText.firstChild);
+	}
 }
