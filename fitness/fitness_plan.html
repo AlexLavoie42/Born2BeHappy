@@ -33,10 +33,10 @@
 </tbody>
 </table>
 
-<script src="../scripts/fitnessPlans.js"></script>
-<script src="../scripts/fitnessSection.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script src="../scripts/firebase_setup.js"></script>
+<script src="../scripts/fitnessPlans.js"></script>
+<script src="../scripts/fitnessSection.js"></script>
 <script>
 type1.style.backgroundColor = "yellow";
 var database = firebase.firestore();
@@ -61,6 +61,21 @@ function switchType(i){
 	
 	update();
 }
+
+var collectedPlan = new Array();
+
+database.collection("fitness").where("docType", "==", "plan").get()
+.then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+			console.log(doc.data());
+			savePlan(doc.data().isExercise, doc.data().exerciseType, doc.data().name, doc.data().rating, doc.data().description);
+        });
+		switchType(0);
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
 </script>
 </body>
 </html>
