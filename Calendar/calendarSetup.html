@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <title></title>
-    <meta charset="utf-8"/>
+	<meta charset="utf-8"/>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	<script src="../scripts/firebase_setup.js"></script>
     <style>
 	h1 {
-		verticle-align: middle;
+		vertical-align: middle;	
 	}
 	.header { 
 		text-align: center;
@@ -130,26 +132,10 @@
 		</tr>
 	  </table> 
 
-	  <div id="goals"/>
+	  <div id="goals">
 	  
 	  </div>
   
   </body>
-  <script>
-	function Day(dayNum){
-		this.dayNum = dayNum;
-		this.colors = new Array();//the four colors that can be assigned to the day
-		this.goalCount = 0;//how many goals that are assigned to the day
-	}
-	
-	Day.addColor = function(color){
-		console.log("Hello");
-	};
-	
-	var days = new Array();
-	
-	for(let i = 0; i < 31; i++){
-		days = new Day(i + 1);
-	}
-  </script>
+  <script src = "../scripts/calendarSetup.js"></script>
 </html>
