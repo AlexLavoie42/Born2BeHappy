@@ -3,7 +3,7 @@ var goal = document.getElementById("goal");
 var addedGoals = document.getElementById("addedGoals");
 var goals = [];
 var goalDoc;
-var goalSize;
+var goalSize = 0;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {
@@ -16,7 +16,7 @@ function addGoal(){
 	goalDoc = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
 	goalDoc.get().then(function(doc) {
     if (doc.exists) {
-        goalSize = doc.size;
+        goalSize = doc.get("goalSize");
     } else {
         console.log("Can't find user DB");
     }
@@ -39,9 +39,7 @@ function displayGoal(goalText) {
 }
 
 function saveGoals(){
-	var i;
-	for(i = 0; i < goals.length; i++){
-		var goalNum = i + goalSize;
-		goalDoc.update({[goalNum]:goals[i]})
-	}
+	goalSize++
+	goalDoc.update({[goalSize]:goals[goalSize - 1]})
+	goalDoc.update({goalSize:goalSize});
 }
