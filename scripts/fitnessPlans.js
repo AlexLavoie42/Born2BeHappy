@@ -34,10 +34,6 @@ function savePlan(isExercise, type, name, rating, description){
 	plan[planCount++] = new FitnessPlan(isExercise, type, name, rating, description);
 }
 
-//save the default plans
-savePlan(true, "upperBody", "Ryan's One-month Plan to Build Traps", "10/10", null);
-savePlan(true, "upperBody", "How to Get a Bigger Chest", "9/10", null);
-
 var inputPlan = document.getElementById("inputPlan");
 var planName;
 
@@ -52,42 +48,42 @@ function uploadPlan(planIndex){
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
 		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
 		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
 		} else if(plan[u].type == "weightLoss" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
 		} else if(plan[u].type == "bulkUp" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
 		} else if(plan[u].type == "preWorkout" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
-			+ "</td><td><h2>" + plan[u].rating
+			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
 			document.getElementById(plan[u].name).addEventListener('click', planClicked);
@@ -95,7 +91,6 @@ function uploadPlan(planIndex){
 	}
 	console.log(plan);
 }
-uploadPlan("upperBody");
 
 function clearPlan(){
 	inputPlan.innerHTML = "";

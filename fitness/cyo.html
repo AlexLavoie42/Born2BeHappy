@@ -92,7 +92,8 @@ document.getElementById("uploadPlan").onclick = function(){
 		exerciseType : exerciseSubmittedType,
 		isExercise : submittedIsExercise,
 		rating : "Unrated",
-		name : document.getElementById("planName").value
+		name : document.getElementById("planName").value,
+		docType: "plan"
 	};
 	database.collection('fitness').doc(document.getElementById("planName").value).set(userPlan);
 	
