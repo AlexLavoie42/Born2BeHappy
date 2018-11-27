@@ -104,22 +104,22 @@
 			<td>sat</td>
 		</tr>
 		<tr>
-			<td class = "out">25</td><td class = "out">26</td><td class = "out">27</td><td class = "out">28</td><td class = "out">29</td><td class = "out">30</td><td class="days">1</td>
+			<td class = "out">25</td><td class = "out">26</td><td class = "out">27</td><td class = "out">28</td><td class = "out">29</td><td class = "out">30</td><td id="day1" class="days">1</td>
 		</tr>
 		<tr>
-			<td class="days">2</td><td class="days">3</td><td class="days">4</td><td class="days">5</td><td class="days">6</td><td class="days">7</td><td class="days">8</td>
+			<td id="day2" class="days">2</td><td id="day3" class="days">3</td><td id="day4" class="days">4</td><td id="day5" class="days">5</td><td id="day6" class="days">6</td><td id="day7" class="days">7</td><td id="day8" class="days">8</td>
 		</tr>
 		<tr>
-			<td class="days">9</td><td class="days">10</td><td class="days">11</td><td class="days">12</td><td class="days">13</td><td class="days">14</td><td class="days">15</td>
+			<td id="day9" class="days">9</td><td id="day10" class="days">10</td><td id="day11" class="days">11</td><td id="day12" class="days">12</td><td id="day13" class="days">13</td><td id="day14" class="days">14</td><td id="day15" class="days">15</td>
 		</tr>
 		<tr>
-			<td class="days">16</td><td class="days">17</td><td class="days">18</td><td class="days">19</td><td class="days">20</td><td class="days">21</td><td class="days">22</td>
+			<td id="day16" class="days">16</td><td id="day17" class="days">17</td><td id="day18" class="days">18</td><td id="day19" class="days">19</td><td id="day20" class="days">20</td><td id="day21" class="days">21</td><td id="day22" class="days">22</td>
 		</tr>
 		<tr>
-			<td class="days">23</td><td class="days">24</td><td class="days">25</td><td class="days">26</td><td class="days">27</td><td class="days">28</td><td class="days">29</td>
+			<td id="day23" class="days">23</td><td id="day24" class="days">24</td><td id="day25" class="days">25</td><td id="day26" class="days">26</td><td id="day27" class="days">27</td><td id="day28" class="days">28</td><td id="day29" class="days">29</td>
 		</tr>
 		<tr>
-			<td class="days">30</td><td class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
+			<td id="day30" class="days">30</td><td id="day31" class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
 	  </table> 
 	  <script>
@@ -159,12 +159,12 @@
 			isSelected6: false,
 			
 			selectGoal: function(goalNum){
-				isSelected1 = false;
-				isSelected2 = false;
-				isSelected3 = false;
-				isSelected4 = false;
-				isSelected5 = false;
-				isSelected6 = false;
+				this.isSelected1 = false;
+				this.isSelected2 = false;
+				this.isSelected3 = false;
+				this.isSelected4 = false;
+				this.isSelected5 = false;
+				this.isSelected6 = false;
 				
 				goal1.style.border = "none";
 				goal2.style.border = "none";
@@ -175,27 +175,27 @@
 				
 				switch(goalNum){
 					case 0:
-					isSelected1 = true;
+					this.isSelected1 = true;
 					goal1.style.border = "solid white 2px";
 					break;
 					case 1:
-					isSelected2 = true;
+					this.isSelected2 = true;
 					goal2.style.border = "solid white 2px";
 					break;
 					case 2:
-					isSelected3 = true;
+					this.isSelected3 = true;
 					goal3.style.border = "solid white 2px";
 					break;
 					case 3:
-					isSelected4 = true;
+					this.isSelected4 = true;
 					goal4.style.border = "solid white 2px";
 					break;
 					case 4:
-					isSelected5 = true;
+					this.isSelected5 = true;
 					goal5.style.border = "solid white 2px";
 					break;
 					case 5:
-					isSelected6 = true;
+					this.isSelected6 = true;
 					goal6.style.border = "solid white 2px";
 					break;
 					default:
@@ -232,7 +232,7 @@
 				|| (color == availableGoals.c5 && availableGoals.canSelect5)
 				|| (color == availableGoals.c6 && availableGoals.canSelect6)){
 					this.colors[this.colorNum++] = color;
-					console.log(this.colors);
+					console.log("The color " + color + " was added to Day #" + this.dayNum);
 				} else {
 					console.log("Error: Day #" + this.dayNum + " can't contain the color " + color);
 				}
@@ -243,34 +243,64 @@
 		for(let i = 0; i < 31; i++){
 			days[i] = new day(i + 1);
 		}
+		days[3].addColor("red");
+		days[5].addColor("green");
+		days[21].addColor("blue");
+		days[30].addColor("yellow");
+		days[1].addColor("magenta");
+		days[15].addColor("orange");
 		
-		var dayElement = document.getElementsByClassName("days");
-		dayElement.addEventListener('click' highlightSelectedDays);
+		function clearDayElements(){
+			for(let i = 0; i < 31; i++){
+				document.getElementById("day" + (i + 1)).style.backgroundColor = "transparent";
+			}
+		}
+		
 		function highlightSelectedDays(){
-			console.log("A calendar day was selected");
+			for(let i = 0; i < 31; i++){
+				if(availableGoals.isSelected1 && days[i].colors.includes(availableGoals.c1)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c1;
+				} else if(availableGoals.isSelected2 && days[i].colors.includes(availableGoals.c2)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c2;
+				} else if(availableGoals.isSelected3 && days[i].colors.includes(availableGoals.c3)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c3;
+				} else if(availableGoals.isSelected4 && days[i].colors.includes(availableGoals.c4)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c4;
+				} else if(availableGoals.isSelected5 && days[i].colors.includes(availableGoals.c5)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c5;
+				} else if(availableGoals.isSelected6 && days[i].colors.includes(availableGoals.c6)){
+					document.getElementById("day" + (i + 1)).style.backgroundColor = availableGoals.c6;
+				}
+			}
 		}
 		
 		goal1.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(0);
 			highlightSelectedDays();
 		});
 		goal2.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(1);
 			highlightSelectedDays();
 		});
 		goal3.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(2);
 			highlightSelectedDays();
 		});
 		goal4.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(3);
 			highlightSelectedDays();
 		});
 		goal5.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(4);
 			highlightSelectedDays();
 		});
 		goal6.addEventListener('click', function(){
+			clearDayElements();
 			availableGoals.selectGoal(5);
 			highlightSelectedDays();
 		});
