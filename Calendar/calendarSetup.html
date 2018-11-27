@@ -20,11 +20,9 @@
 	}
 	table {
 		display: inline-block;
-		float: left;
 		border: solid 1px black;
 		border-collapse: collapse;
 		text-align: center;
-		margin-left:15%; margin-right:15%;
 	}
 	table td {
 		border: solid 1px black;
@@ -54,6 +52,15 @@
 		position: relative;
 		top: -25px;
 	}
+	#goals{
+		float: right;
+		width:33%;
+		margin-right: 5%;
+	}
+	#cal{
+		float: left;
+		margin-left: 5%;
+	}
 	
     </style>
   </head>
@@ -63,7 +70,7 @@
 	</div></h1>
 	<h2>Select days you want to work on your goal.
 	</h2>
-	<table>
+	<table id = "cal">
 		<tr>
 			<td colspan = "7">December 2018</td>
 		</tr>
@@ -132,9 +139,11 @@
 		</tr>
 	  </table> 
 
-	  <div id="goals">
-	  
-	  </div>
+	  <table id="goals">
+		  <tr>
+		  	<th>Goals</th>
+		  </tr>
+	  </table>
   
   </body>
   <script src = "../scripts/calendarSetup.js"></script>
