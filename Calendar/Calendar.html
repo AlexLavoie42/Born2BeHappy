@@ -342,9 +342,42 @@
 			}
 		}
 		
+		var checkImg = new Array();
+		var checkSrc = "../images/check.png";
+		
 		for(let i = 0; i < 31; i++){
 			document.getElementById("day" + (i + 1)).addEventListener('click', dayCheckedOff);
+			
+			//initialize check image variables
+			checkImg[i] = document.createElement("img");
+			checkImg[i].src = checkSrc;
+			checkImg[i].height = 75;
 		}
+		
+		function updateChecks(colorSelected){
+			//TODO
+		}
+		
+		var selected = 0;
+		//this interval updates the check marks on the days
+		window.setInterval(function(){
+			if(availableGoals.isSelected1)
+				selected = 1;
+			else if(availableGoals.isSelected2)
+				selected = 2;
+			else if(availableGoals.isSelected3)
+				selected = 3;
+			else if(availableGoals.isSelected4)
+				selected = 4;
+			else if(availableGoals.isSelected5)
+				selected = 5;
+			else if(availableGoals.isSelected6)
+				selected = 6;
+			else
+				selected = 0;
+				
+			updateChecks(selected);
+		}, 50);
 	  </script>
   </body>
   
