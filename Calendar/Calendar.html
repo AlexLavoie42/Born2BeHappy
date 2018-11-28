@@ -325,11 +325,20 @@
 		function dayCheckedOff(event){
 			var dayClicked = event.target.innerText;
 			
-			for(let i = 0; i < 31; i++){
-				if(availableGoals.isSelected1){
-					redChecked[i] = (redChecked[i]) ? false : true;
-					console.log("Day #" + i + " was changed to " + redChecked[i]);
-				}
+			if(availableGoals.isSelected1 && days[dayClicked - 1].colors.includes(availableGoals.c1)){
+				redChecked[dayClicked - 1] = (redChecked[dayClicked - 1]) ? false : true;
+			} else if (availableGoals.isSelected2 && days[dayClicked - 1].colors.includes(availableGoals.c2)){
+				greenChecked[dayClicked - 1] = (greenChecked[dayClicked - 1]) ? false : true;
+			} else if (availableGoals.isSelected3 && days[dayClicked - 1].colors.includes(availableGoals.c3)){
+				blueChecked[dayClicked - 1] = (blueChecked[dayClicked - 1]) ? false : true;
+			} else if (availableGoals.isSelected4 && days[dayClicked - 1].colors.includes(availableGoals.c4)){
+				yellowChecked[dayClicked - 1] = (yellowChecked[dayClicked - 1]) ? false : true;
+			} else if (availableGoals.isSelected5 && days[dayClicked - 1].colors.includes(availableGoals.c5)){
+				magentaChecked[dayClicked - 1] = (magentaChecked[dayClicked - 1]) ? false : true;
+			} else if (availableGoals.isSelected6 && days[dayClicked - 1].colors.includes(availableGoals.c6)){
+				orangeChecked[dayClicked - 1] = (orangeChecked[dayClicked - 1]) ? false : true;
+			} else {
+				window.alert("You must click on a color first!");
 			}
 		}
 		
