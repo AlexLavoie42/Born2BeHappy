@@ -3,6 +3,8 @@ var goalDoc;
 var dayDoc;
 var goals;
 var days;
+var goalTexts = [];
+var currentGoal;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {
@@ -38,6 +40,22 @@ function loadGoals(){
 
 function setGoals(){
   for(i = 0; i < goals.length; i++){
+    var goalRow = document.createElement("TR");
+    var goalD = document.createElement("TD");
+    var goalText = document.createTextNode(goals[i]);
     
+    goalD.appendChild(goalText);
+    goalRow.appendChild(goalD);
+    document.getElementById("goals").appendChild(goalRow);
+
+    goalTexts.push(goalRow);
   }
 }
+
+function setGoal(id){
+  currentGoal = goals[id];
+}
+
+goalTexts.forEach(function{
+  
+})

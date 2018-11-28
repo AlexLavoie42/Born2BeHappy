@@ -24,7 +24,7 @@ function getGoals(){
 			displayGoal(i);
 		}
     } else {
-        console.log("Can't find user DB");
+        goalDoc.set({1:null});
     }
  	}).catch(function(error) {
  	    console.log("Error getting document:", error);
