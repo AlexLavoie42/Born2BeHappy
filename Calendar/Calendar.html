@@ -356,6 +356,10 @@
 			//initialize check image variables
 			checkImg[i] = document.createElement("img");
 			checkImg[i].height = 75;
+			checkImg[i].style.float = "left";
+			checkImg[i].style.position = "relative";
+			checkImg[i].style.left = "30px";
+			checkImg[i].style.top = "15px";
 			
 			document.getElementById("day" + (i + 1)).appendChild(checkImg[i]);
 		}
