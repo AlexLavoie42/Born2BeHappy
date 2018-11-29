@@ -100,3 +100,7 @@ function setGoals(){
     });
   }
 }
+
+function goToCalendar(){
+  window.location.replace("./Calendar.html");
+}
