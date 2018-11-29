@@ -47,7 +47,6 @@ function displayGoal(goalNum) {
 		goalP.appendChild(goalText);
 		document.getElementById("addedGoals").appendChild(goalP);
 	}
-	
 }
 
 function saveGoal(goalNum){
