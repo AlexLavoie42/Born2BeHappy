@@ -123,12 +123,6 @@ function update(){
 	}
 }
 
-//This is to get rid of a glitch
-document.getElementById("Ryan's One-month Plan to Build Traps").addEventListener('click', function(){
-	planName = "Ryan's One-month Plan to Build Traps";
-	planClicked();
-});
-
 var fb = firebase.firestore();
 function planClicked(){
 	var planClicked = {
