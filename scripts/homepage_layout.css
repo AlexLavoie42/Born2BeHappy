@@ -13,8 +13,29 @@ header a{
 
 #content div{
 	text-align: center;
-}
-
-#homepage_buttons{
 	
 }
+
+.homepage_buttons{
+	border-radius: 4px;
+	height: 30px;
+	width: 200px;
+	position: relative;
+	top: 100px;
+}
+.divider {
+	height: 20px;
+}
+body {
+	background-image: linear-gradient(
+      rgba(0, 15, 200, 0),
+      rgba(0, 15, 200, 0)
+    ),url(../images/slide.gif);
+	background-size: 1380px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-position: center; 
+	background-color:#BDBDBD;
+
+}
+
