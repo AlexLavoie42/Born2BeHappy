@@ -75,16 +75,16 @@
 			<td class = "g" id="goal2"></td>
 		  </tr>
 		  <tr>
-			<td class = "g" id="goal3"></></td>
+			<td class = "g" id="goal3"></td>
 		  </tr>
 		  <tr> 
-			<td class = "g" id="goal4"></></td>
+			<td class = "g" id="goal4"></td>
 		  </tr>
 		  <tr> 
-			<td class = "g" id="goal5"></></td>
+			<td class = "g" id="goal5"></td>
 		  </tr>
 		  <tr>
-			<td class = "g" id="goal6"></></td>
+			<td class = "g" id="goal6"></td>
 		  </tr>
 	  </table>
 	  <table id ="calendar">
@@ -121,7 +121,9 @@
 		<tr>
 			<td id="day30" class="days">30</td><td id="day31" class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
-	  </table> 
+	  </table>
+	  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	  <script src="../scripts/firebase_setup.js"></script>
 	  <script>
 		var goal1 = document.getElementById("goal1");
 		var goal2 = document.getElementById("goal2");
@@ -204,7 +206,9 @@
 			}
 		};
 		
-		//add a firebase method to get the available goals that the user selected
+		var db = firebase.firestore();
+		var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
+		document.getElementById("goal1").innerHTML = user.get("1");
 		
 		if(availableGoals.canSelect1)
 			goal1.style.backgroundColor = availableGoals.c1;
