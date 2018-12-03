@@ -40,53 +40,47 @@ var planName;
 function uploadPlan(planIndex){
 	for(let u = 0; u < planCount; u++){
 		if(plan[u].type == "upperBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		} else if(plan[u].type == "cardio" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		} else if(plan[u].type == "weightLoss" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		} else if(plan[u].type == "bulkUp" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		} else if(plan[u].type == "preWorkout" && plan[u].type == planIndex){
-			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
+			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', eventListener);
 		}
 	}
 	console.log(plan);
@@ -124,9 +118,9 @@ function update(){
 }
 
 var fb = firebase.firestore();
-function planClicked(){
+function eventListener(event){
 	var planClicked = {
-		name: planName
+		name: event.target.parentNode.id
 	};
 	database.collection('fitness').doc('planViewed').set(planClicked).then(function() {
 		document.location.href = "viewPlan.html";
