@@ -1,3 +1,4 @@
+
 header{
 	height: 20%;
 	text-align: center;
@@ -6,8 +7,28 @@ header{
 header a{
 	padding-right: 80%;
 }
-
+#sign_in {
+	border-radius: 4px;
+	height: 50px;
+	width: 150px;
+	background-color: rgb(255, 255, 255, 0.5);
+	color: white;
+	border: 1px solid white;
+	font-weight: bold;
+	
+}
+section {
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	margin: auto;
+	width: 500px;
+	height: 400px;
+	color: white;
+}
 #content{
+	vertical-align: middle;
+	position: relative;
+	top: 40px;
 	
 }
 
@@ -18,24 +39,27 @@ header a{
 
 .homepage_buttons{
 	border-radius: 4px;
-	height: 30px;
-	width: 200px;
-	position: relative;
-	top: 100px;
+	height: 50px;
+	width: 250px;
+	font-weight: bold;
+	background-color: rgb(72, 201, 176, 0.5);
+	color: white;
+	border: 1px solid rgb(72, 201, 176);
+	font-size: 10pt;
 }
 .divider {
 	height: 20px;
 }
 body {
-	background-image: linear-gradient(
-      rgba(0, 15, 200, 0),
-      rgba(0, 15, 200, 0)
-    ),url(../images/slide.gif);
-	background-size: 1380px;
+	background-image: url(../images/slide.gif);
+	background-size: 2080px;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
     background-position: center; 
-	background-color:#BDBDBD;
+	background-color:RGB(36, 113, 163, 0.6);
+	background-blend-mode: multiply;
+	font-family: 'Hind', sans-serif;
+    font-size: 20pt;
 
 }
 
