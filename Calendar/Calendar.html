@@ -216,7 +216,9 @@
 		function getGoals(){
 			var db = firebase.firestore();
 			var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
-			document.getElementById("goal1").innerHTML = user.get("1");
+			document.getElementById("goal1").innerHTML = user.get().then(function(doc){
+				
+			});
 		}
 		
 		if(availableGoals.canSelect1)
