@@ -222,6 +222,13 @@
 				if (doc.exists) {
 					goals = Object.values(doc.data());
 				}
+				
+				document.getElementById("goal1").innerHTML = goals[0];
+				document.getElementById("goal2").innerHTML = goals[1];
+				document.getElementById("goal3").innerHTML = goals[2];
+				document.getElementById("goal4").innerHTML = goals[3];
+				document.getElementById("goal5").innerHTML = goals[4];
+				document.getElementById("goal6").innerHTML = goals[5];
 			});
 		}
 		
@@ -231,6 +238,25 @@
 				if (doc.exists) {
 					days = Object.values(doc.data());
 				}
+				
+				goals.foreach(function(i){
+					for(let n = 0; n < 31; n++){
+						if(days[n] && i == 0){
+							redChecked[n] = true;
+						} else if(days[n] && i == 1){
+							greenChecked[n] = true;
+						} else if(days[n] && i == 2){
+							blueChecked[n] = true;
+						} else if(days[n] && i == 3){
+							yellowChecked[n] = true;
+						} else if(days[n] && i == 4){
+							magentaChecked[n] = true;
+						} else if(days[n] && i == 5){
+							orangeChecked[n] = true;
+						}
+					}
+					updateChecks(i);
+				});
 			});
 		}
 		
