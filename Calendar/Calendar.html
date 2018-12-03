@@ -139,6 +139,7 @@
 		var goal4 = document.getElementById("goal4");
 		var goal5 = document.getElementById("goal5");
 		var goal6 = document.getElementById("goal6");
+		var goals = [];
 	  
 		//the goals that are able to be selected from the goals table
 		var availableGoals = {
@@ -216,7 +217,11 @@
 		function getGoals(){
 			var db = firebase.firestore();
 			var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
-			document.getElementById("goal1").innerHTML = user.get("1");
+			user.get().then(function(doc){
+				if (doc.exists) {
+					goals = Object.values(doc.data());
+				}
+			});
 		}
 		
 		if(availableGoals.canSelect1)
