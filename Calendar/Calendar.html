@@ -128,6 +128,8 @@
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (!user) {
 				window.location.replace("../sign-in.html");
+			} else {
+				getGoals();
 			}
 		});
 	  
@@ -211,10 +213,11 @@
 				}
 			}
 		};
-		
-		var db = firebase.firestore();
-		var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
-		document.getElementById("goal1").innerHTML = user.get("1");
+		function getGoals(){
+			var db = firebase.firestore();
+			var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
+			document.getElementById("goal1").innerHTML = user.get("1");
+		}
 		
 		if(availableGoals.canSelect1)
 			goal1.style.backgroundColor = availableGoals.c1;
