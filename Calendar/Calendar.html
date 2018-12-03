@@ -223,8 +223,10 @@
 					goals = Object.values(doc.data());
 				}
 			});
-			
-			var days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc("GOALNUMBERHERE");
+		}
+		
+		function getDays(goalNum){
+			var days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum);
 			days.get().then(function(doc){
 				if (doc.exists) {
 					days = Object.values(doc.data());
@@ -305,31 +307,37 @@
 			clearDayElements();
 			availableGoals.selectGoal(0);
 			highlightSelectedDays();
+			getDays(0);
 		});
 		goal2.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(1);
 			highlightSelectedDays();
+			getDays(1);
 		});
 		goal3.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(2);
 			highlightSelectedDays();
+			getDays(2);
 		});
 		goal4.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(3);
 			highlightSelectedDays();
+			getDays(3);
 		});
 		goal5.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(4);
 			highlightSelectedDays();
+			getDays(4);
 		});
 		goal6.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(5);
 			highlightSelectedDays();
+			getDays(5);
 		});
 		
 		//an array for each color containing the checkoffs
