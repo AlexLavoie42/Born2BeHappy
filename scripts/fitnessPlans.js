@@ -45,7 +45,7 @@ function uploadPlan(planIndex){
 			+ "<img src='../images/play.png' alt='Play Button' width='200px' />"
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
-			document.getElementById(plan[u].name).addEventListener('click', eventListener);
+			document.getElementById("inputPlan").addEventListener('click', eventListener);
 		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
 			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px' id=\"" + plan[u].name + "\"><h3>"
 			+ plan[u].name + "</h3><br />"
