@@ -234,26 +234,26 @@
 		
 		function getDays(goalNum){
 			var db = firebase.firestore();
-			var days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum.toString());
+			let days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum.toString());
 			days.get().then(function(doc){
 				if (doc.exists) {
 					days = Object.values(doc.data());
 				}
 				
-				goals.foreach(function(i){
+				goals.forEach(function(i){
 					for(let n = 0; n < 31; n++){
 						if(days[n] && i == 0){
-							redChecked[n] = true;
+							this.days[n].addColor("red");
 						} else if(days[n] && i == 1){
-							greenChecked[n] = true;
+							this.days[n].addColor("green");
 						} else if(days[n] && i == 2){
-							blueChecked[n] = true;
+							this.days[n].addColor("blue");
 						} else if(days[n] && i == 3){
-							yellowChecked[n] = true;
+							this.days[n].addColor("yellow");
 						} else if(days[n] && i == 4){
-							magentaChecked[n] = true;
+							this.days[n].addColor("magenta");
 						} else if(days[n] && i == 5){
-							orangeChecked[n] = true;
+							this.days[n].addColor("orange");
 						}
 					}
 					updateChecks(i);
@@ -298,13 +298,7 @@
 		for(let i = 0; i < 31; i++){
 			days[i] = new day(i + 1);
 		}
-		days[3].addColor("red");
-		days[5].addColor("green");
-		days[21].addColor("blue");
-		days[30].addColor("yellow");
-		days[1].addColor("magenta");
-		days[15].addColor("orange");
-		days[30].addColor("magenta");
+		
 		
 		function clearDayElements(){
 			for(let i = 0; i < 31; i++){
