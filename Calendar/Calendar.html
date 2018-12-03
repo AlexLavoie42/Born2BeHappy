@@ -140,6 +140,7 @@
 		var goal5 = document.getElementById("goal5");
 		var goal6 = document.getElementById("goal6");
 		var goals = [];
+		var days = [];
 	  
 		//the goals that are able to be selected from the goals table
 		var availableGoals = {
@@ -220,6 +221,13 @@
 			user.get().then(function(doc){
 				if (doc.exists) {
 					goals = Object.values(doc.data());
+				}
+			});
+			
+			var days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc("GOALNUMBERHERE");
+			days.get().then(function(doc){
+				if (doc.exists) {
+					days = Object.values(doc.data());
 				}
 			});
 		}
