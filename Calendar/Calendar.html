@@ -240,7 +240,7 @@
 					days = Object.values(doc.data());
 				}
 				
-				goals.foreach(function(i){
+				goals.forEach(function(i){
 					for(let n = 0; n < 31; n++){
 						if(days[n] && i == 0){
 							redChecked[n] = true;
