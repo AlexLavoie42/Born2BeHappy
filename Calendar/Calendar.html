@@ -233,6 +233,7 @@
 		}
 		
 		function getDays(goalNum){
+			var db = firebase.firestore();
 			var days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum);
 			days.get().then(function(doc){
 				if (doc.exists) {
