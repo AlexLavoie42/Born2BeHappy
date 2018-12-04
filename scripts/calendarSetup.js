@@ -10,7 +10,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {
     window.location.replace("../sign-in.html");
   } else {
-    loadGoals();
+    load();
   }
 });
 
@@ -32,10 +32,10 @@ function selectDay(day, bttn){
 }
 
 function saveDays(){
-  currentDayDoc = dayDoc.doc(currentGoal.toString());
-  currentDayDoc.set({null : null});
-  days.forEach(function(d, i){
-    currentDayDoc.update({[d.day] : true});
+	currentDayDoc = dayDoc.doc(currentGoal.toString());
+	currentDayDoc.set({null : null});
+	days.forEach(function(d, i){
+		currentDayDoc.update({[i] : d.day});
   })
 }
 
@@ -49,7 +49,7 @@ function updateDays(){
   });
 }
 
-function loadGoals(){
+function load(){
   goalDoc = db.collection("userGoals").doc(firebase.auth().currentUser.uid);  
   dayDoc = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum");
 	goalDoc.get().then(function(doc) {
@@ -57,6 +57,7 @@ function loadGoals(){
       Object.values(doc.data()).forEach(function(i, index){
         goals[index] = {goal : i, days : []};
       });
+	clearGoals();
     setGoals();
     } else {
         console.log("Can't find user DB");
@@ -99,6 +100,12 @@ function setGoals(){
       });
     });
   }
+}
+
+function clearGoals(){
+	for(i = 0; i < 6; i++){
+		dayDoc.doc(i.toString()).delete();
+	}
 }
 
 function goToCalendar(){

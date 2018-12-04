@@ -234,30 +234,30 @@
 		
 		function getDays(goalNum){
 			var db = firebase.firestore();
-			let days = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum.toString());
-			days.get().then(function(doc){
+			var dayDoc = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum.toString());
+			dayDoc.get().then(function(doc){
 				if (doc.exists) {
-					days = Object.values(doc.data());
+					var selectedDays = Object.values(doc.data());
 				}
 				
-				goals.forEach(function(i){
+				selectedDays.forEach(function(sDay, i) {
 					for(let n = 0; n < 31; n++){
-						if(days[n] && i == 0){
-							this.days[n].addColor("red");
-						} else if(days[n] && i == 1){
-							this.days[n].addColor("green");
-						} else if(days[n] && i == 2){
-							this.days[n].addColor("blue");
-						} else if(days[n] && i == 3){
-							this.days[n].addColor("yellow");
-						} else if(days[n] && i == 4){
-							this.days[n].addColor("magenta");
-						} else if(days[n] && i == 5){
-							this.days[n].addColor("orange");
+						if(sDay == n + 1 && goalNum == 0){
+							days[n].addColor("red");
+						} else if(sDay == n + 1 && goalNum == 1){
+							days[n].addColor("green");
+						} else if(sDay == n + 1 && goalNum == 2){
+							days[n].addColor("blue");
+						} else if(sDay == n + 1 && goalNum == 3){
+							days[n].addColor("yellow");
+						} else if(sDay == n + 1 && goalNum == 4){
+							days[n].addColor("magenta");
+						} else if(sDay == n + 1 && goalNum == 5){
+							days[n].addColor("orange");
 						}
 					}
-					updateChecks(i);
 				});
+				highlightSelectedDays(goalNum);
 			});
 		}
 		
@@ -327,38 +327,42 @@
 		goal1.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(0);
-			highlightSelectedDays();
 			getDays(0);
+			updateChecks(0);
 		});
 		goal2.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(1);
-			highlightSelectedDays();
 			getDays(1);
+			updateChecks(1);
 		});
 		goal3.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(2);
-			highlightSelectedDays();
 			getDays(2);
+			highlightSelectedDays();
+			updateChecks(2);
 		});
 		goal4.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(3);
-			highlightSelectedDays();
 			getDays(3);
+			highlightSelectedDays();
+			updateChecks(3);
 		});
 		goal5.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(4);
-			highlightSelectedDays();
 			getDays(4);
+			highlightSelectedDays();
+			updateChecks(4);
 		});
 		goal6.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(5);
-			highlightSelectedDays();
 			getDays(5);
+			highlightSelectedDays();
+			updateChecks(5);
 		});
 		
 		//an array for each color containing the checkoffs
