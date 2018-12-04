@@ -6,20 +6,38 @@
 	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 	<script src="../scripts/firebase_setup.js"></script>
     <style>
+	
+	@import url(https://fonts.googleapis.com/css?family=Hind|Poppins);
+	
 	body {
-		background-color: rgb(118, 215, 196, 0.5);  
+		background-color: #A2D9CE;  
 		background-size: 2000px;
 		background-position: center;
-		
+		font-family: 'Hind', sans-serif;
 	}
 	h1 {
-		vertical-align: middle;	
+		text-align: left;
+		position: relative;
+		top: 30px;
+		right: -25px;
+		}
+	#banner {
+		height: 100px;
+		padding-bottom: 0;
+		color: white;
+		background-color: black;
 	}
+
+	
 	.header { 
 		text-align: center;
-		background-color:  black;
-		color: white;
-		height: 70px;
+		background-image: url(../images/scheduling.jpg);
+		background-repeat: no-repeat;
+		background-size: 2000px;
+		color: black;
+		height: 270px;
+		background-position: center -200px;
+		
 	}
 	h2 {
 		text-align: center;
@@ -33,6 +51,7 @@
 	table td {
 		border: solid 1px black;
 	}
+	
 	
 	button {
 		width: 100px;
@@ -88,11 +107,11 @@
     </style>
   </head>
   <body>
-	  <section>
-		<div class= "header"><h1>
-		Calendar Setup
-		</div></h1>
-		<h2>Select days you want to work on your goal.
+	  <section><div id = "banner"><h1>
+		Born 2 Be Happy
+		</h1></div>
+		<div class= "header"></div>
+		<h2>Calendar Setup<br>Select days you want to work on your goal.
 		</h2>
 		<table id = "cal">
 			<tr>

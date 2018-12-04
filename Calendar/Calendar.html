@@ -4,11 +4,47 @@
     <title></title>
     <meta charset="utf-8"/>
     <style>
+	
+	@import url(https://fonts.googleapis.com/css?family=Hind|Poppins);
+	
+	body {
+		background-color: #A2D9CE;  
+		background-size: 2000px;
+		background-position: center;
+		font-family: 'Hind', sans-serif;
+	}
+	#banner {
+		height: 100px;
+		padding-bottom: 0;
+		color: white;
+		background-color: black;
+	}
+	h1 {
+		text-align: left;
+		position: relative;
+		top: 30px;
+		right: -25px;
+		}
+	.header { 
+		text-align: center;
+		background-image: url(../images/scheduling.jpg);
+		background-repeat: no-repeat;
+		background-size: 2000px;
+		color: black;
+		height: 270px;
+		background-position: center -200px;
+	}
+	section {
+		text-align: center;
+	}
+	
 	table {
 		display: inline-block;
-		float: left;
 		border: solid 1px black;
 		border-collapse: collapse;
+		position: relative;
+		top: 80px;
+		background-color: white;
 	}
 	table td {
 		border: solid 1px black;
@@ -53,6 +89,8 @@
 	}
 	.out {
 		color: #B3B6B7;
+		text-align: right;
+		vertical-align: top;
 	}
 	
 	
@@ -61,6 +99,10 @@
     </style>
   </head>
   <body>
+	<section><div id = "banner"><h1>
+		Born 2 Be Happy
+		</h1></div>
+		<div class= "header"></div>
 	  <table id = "menu">
 		  <tr>
 			<td class = "stub"><a href="../index.html">Home</a></td>
@@ -122,6 +164,7 @@
 			<td id="day30" class="days">30</td><td id="day31" class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
 	  </table>
+	  </section>
 	  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 	  <script src="../scripts/firebase_setup.js"></script>
 	  <script>

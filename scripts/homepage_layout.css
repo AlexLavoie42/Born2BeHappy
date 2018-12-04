@@ -1,4 +1,19 @@
+/************************************************************************************
+Basic Font & STRUCTURE
+*************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Hind|Poppins);
 
+body {
+	background-image: url(../images/slide.gif);
+	background-size: 2080px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-position: center; 
+	background-color:RGB(36, 113, 163, 0.6);
+	background-blend-mode: multiply;
+	font-family: 'Hind', sans-serif;
+    font-size: 20pt;
+}
 header{
 	height: 20%;
 	text-align: center;
@@ -7,6 +22,7 @@ header{
 header a{
 	padding-right: 80%;
 }
+
 #sign_in {
 	border-radius: 4px;
 	height: 50px;
@@ -15,8 +31,8 @@ header a{
 	color: white;
 	border: 1px solid white;
 	font-weight: bold;
-	
 }
+
 section {
 	position: absolute;
 	top: 0; left: 0; right: 0; bottom: 0;
@@ -25,16 +41,15 @@ section {
 	height: 400px;
 	color: white;
 }
+
 #content{
 	vertical-align: middle;
 	position: relative;
-	top: 40px;
-	
+	top: 40px;	
 }
 
 #content div{
 	text-align: center;
-	
 }
 
 .homepage_buttons{
@@ -50,16 +65,5 @@ section {
 .divider {
 	height: 20px;
 }
-body {
-	background-image: url(../images/slide.gif);
-	background-size: 2080px;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-    background-position: center; 
-	background-color:RGB(36, 113, 163, 0.6);
-	background-blend-mode: multiply;
-	font-family: 'Hind', sans-serif;
-    font-size: 20pt;
 
-}
 
