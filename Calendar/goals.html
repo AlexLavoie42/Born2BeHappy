@@ -8,29 +8,31 @@
 	</head>
 	
 	<body>
+	<div id = "content">
 		<header>
 			<h1>Enter your weekly goals</h1>
 		</header>
 		
 		<div id="goals">
 			<input id="goal" type="text"/>
-			<input onClick="addGoal()" type="submit"/>
-			<input onClick="clearGoals()" type="button" value="Clear All"/>
+			<input onClick="addGoal()" type="SUBMIT" value="SUBMIT"/>
+			<input onClick="clearGoals()" type="button" value="CLEAR ALL"/>
 		</div>
 		
 		<div id="addedGoals">
 			
 		</div>
 
-		
-		
 		<div id="recommendations">
 			
 		</div>
-		
+	</div>
 		<footer>
-			<a href="calendarSetup.html"/>
-			<input class="button" type="button" value="Calendar"/>
+		<div id = "cal">
+			<a href="calendarSetup.html">
+				<input class="button" type="button" value="CALENDAR"/>
+			</a>
+		</div>
 		</footer>
 		
 		<script src="../scripts/goals.js"></script>

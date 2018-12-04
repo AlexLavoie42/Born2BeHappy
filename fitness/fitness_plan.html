@@ -24,8 +24,8 @@
 <table align="center">
 <thead>
 <tr>
-<td>Plan</td>
-<td>Rating</td>
+<td style="font-size: 25pt">Plan</td>
+<td style="font-size: 25pt">Rating</td>
 </tr>
 </thead>
 
@@ -39,24 +39,24 @@
 <script src="../scripts/fitnessPlans.js"></script>
 <script src="../scripts/fitnessSection.js"></script>
 <script>
-type1.style.backgroundColor = "yellow";
+type1.style.textDecoration = "underline";
 var database = firebase.firestore();
 
 function switchType(i){
 	if(i == 0){
-		type1.style.backgroundColor = "yellow";
-		type2.style.backgroundColor = "transparent";
-		type3.style.backgroundColor = "transparent";
+		type1.style.textDecoration = "underline";
+		type2.style.textDecoration = "none";
+		type3.style.textDecoration = "none";
 		typeSelected = 0;
 	} else if (i == 1){
-		type1.style.backgroundColor = "transparent";
-		type2.style.backgroundColor = "yellow";
-		type3.style.backgroundColor = "transparent";
+		type1.style.textDecoration = "none";
+		type2.style.textDecoration = "underline";
+		type3.style.textDecoration = "none";
 		typeSelected = 1;
 	} else {
-		type1.style.backgroundColor = "transparent";
-		type2.style.backgroundColor = "transparent";
-		type3.style.backgroundColor = "yellow";
+		type1.style.textDecoration = "none";
+		type2.style.textDecoration = "none";
+		type3.style.textDecoration = "underline";
 		typeSelected = 2;
 	}
 	
