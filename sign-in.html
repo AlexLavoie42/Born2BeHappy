@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	
 		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 		<script src="./scripts/firebase_setup.js"></script>
 		<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 		<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-		<link rel="stylesheet" href="../scripts/sign-in.css"/>
+		
 		<script>
 			// Initialize the FirebaseUI Widget using Firebase.
 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -56,8 +55,8 @@
 				var errorMessage = error.message;
 			});
 		</script>
-		
 	</head>
+	
 	<body>
 		<h1 style="text-align: center">Sign In</h1>
 		<div id="firebaseui-auth-container"></div>

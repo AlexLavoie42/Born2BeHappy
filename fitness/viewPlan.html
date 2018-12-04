@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,8 +42,21 @@ planViewed.get().then(function(doc) {
 			if(doc.exists){
 				getPlanContent = doc.data();
 				var viewPlanType = (getPlanContent.isExercise) ? "Exercise" : "Meal";
+				var exerciseTypeS;
+				if(getPlanContent.exerciseType == "upperBody")
+					exerciseTypeS = "Upper Body";
+				else if(getPlanContent.exerciseType == "lowerBody")
+					exerciseTypeS = "Lower Body";
+				else if(getPlanContent.exerciseType == "cardio")
+					exerciseTypeS = "Cardio"
+				else if(getPlanContent.exerciseType == "weightLoss")
+					exerciseTypeS = "Weight Loss";
+				else if(getPlanContent.exerciseType == "bulkUp")
+					exerciseTypeS = "Bulk Up";
+				else if(getPlanContent.exerciseType == "preWorkout")
+					exerciseTypes = "Pre-Workout";
 				viewPlanContent.innerHTML += "<h3>Plan type: " + viewPlanType + "</h3>"
-				+ "<h3>Category: " + getPlanContent.exerciseType + "</h3>"
+				+ "<h3>Category: " + exerciseTypeS + "</h3>"
 				+ "<h3>Description</h3><p>" + getPlanContent.description + "</p>"
 				+ "<h3>Rating: " + getPlanContent.rating + "</h3>";
 			}
