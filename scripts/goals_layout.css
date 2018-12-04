@@ -1,12 +1,37 @@
 header{
 	text-align: center;
 }
-
+body {
+	background-image: url(../images/mount-everest.jpg);
+	background-position: 0 -250px;
+	font-family:'Hind', sans-serif;
+	background-repeat: no-repeat;
+}
+#content {
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	margin: auto;
+	width: 500px;
+	height: 600px;
+	color: white;
+	background-color: rgb(26, 35, 126, 0.7);
+	border: solid 2px rgb(26, 35, 126);
+	border-radius: 30px;
+	
+}
 #goals input{
 	margin: 0 auto;
 	width: 28em;
 	display: block;
-	margin-top: 5em;
+	margin-top: 2em;
+	border-radius: 4px;
+	height: 50px;
+	width: 150px;
+	background-color: rgb(255, 255, 255, 0.5);
+	color: white;
+	border: 1px solid white;
+	font-weight: bold;
+	
 }
 
 footer{
@@ -19,8 +44,19 @@ footer{
 footer input{
 	margin-left: 15em;
 }
-
 #addedGoals{
 	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+.button{
+	width: 28em;
+	border-radius: 4px;
+	height: 50px;
+	width: 150px;
+	background-color: rgb(255, 255, 255, 0.5);
+	color: white;
+	border: 1px solid white;
+	font-weight: bold;
 }
 
