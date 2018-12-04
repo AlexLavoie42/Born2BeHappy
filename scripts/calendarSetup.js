@@ -26,7 +26,7 @@ function selectDay(day, bttn){
     });
     if(!dayIncludes){
       days.push({day, bttn});
-      bttn.style.backgroundColor = "#2471A3";
+      bttn.style.color = "red";
     }
   }
 }
