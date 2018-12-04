@@ -35,7 +35,7 @@ var getPlanContent;
 planViewed.get().then(function(doc) {
     if (doc.exists) {
         getPlanName = doc.data();
-		viewPlanContent.innerHTML = "<h1>" + getPlanName.name + "</h1>";
+		viewPlanContent.innerHTML = "<br /><h1>" + getPlanName.name + "</h1>";
 		
 		//Based on the plan name, collect data
 		fitness.doc(getPlanName.name).get().then(function(doc){
@@ -55,9 +55,9 @@ planViewed.get().then(function(doc) {
 					exerciseTypeS = "Bulk Up";
 				else if(getPlanContent.exerciseType == "preWorkout")
 					exerciseTypes = "Pre-Workout";
-				viewPlanContent.innerHTML += "<h3>Plan type: " + viewPlanType + "</h3>"
-				+ "<h3>Category: " + exerciseTypeS + "</h3>"
-				+ "<h3>Description</h3><p>" + getPlanContent.description + "</p>"
+				viewPlanContent.innerHTML += "<h3>Plan type: " + viewPlanType + "</h3><br />"
+				+ "<h3>Category: " + exerciseTypeS + "</h3><br />"
+				+ "<h3>Description</h3><p>" + getPlanContent.description + "</p><br />"
 				+ "<h3>Rating: " + getPlanContent.rating + "</h3>";
 			}
 		});

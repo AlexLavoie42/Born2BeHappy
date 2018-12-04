@@ -28,8 +28,8 @@
 
 <div id="cat2">
 <h2>
-<a onclick="switchSection(0)" id="exercise">Exercise</a>
-<a onclick="switchSection(1)" id="meal">Meal</a>
+<a onclick="switchSection(0)" id="exercise" style="cursor: pointer">Exercise</a>
+<a onclick="switchSection(1)" id="meal" style="cursor: pointer">Meal</a>
 </h2>
 </div>
 
@@ -92,7 +92,7 @@ document.getElementById("uploadPlan").onclick = function(){
 		description : document.getElementById("description").value,
 		exerciseType : exerciseSubmittedType,
 		isExercise : submittedIsExercise,
-		rating : "Unrated",
+		rating : "10/10",
 		name : document.getElementById("planName").value,
 		docType: "plan"
 	};
