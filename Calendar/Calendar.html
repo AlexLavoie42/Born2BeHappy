@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +64,7 @@
   <body>
 	  <table id = "menu">
 		  <tr>
-			<td class = "stub"></td>
+			<td class = "stub"><a href="../index.html">Home</a></td>
 		  </tr>
 		  <tr>
 			<td class = "goals">Goals</td>
@@ -75,16 +76,16 @@
 			<td class = "g" id="goal2"></td>
 		  </tr>
 		  <tr>
-			<td class = "g" id="goal3"></></td>
+			<td class = "g" id="goal3"></td>
 		  </tr>
 		  <tr> 
-			<td class = "g" id="goal4"></></td>
+			<td class = "g" id="goal4"></td>
 		  </tr>
 		  <tr> 
-			<td class = "g" id="goal5"></></td>
+			<td class = "g" id="goal5"></td>
 		  </tr>
 		  <tr>
-			<td class = "g" id="goal6"></></td>
+			<td class = "g" id="goal6"></td>
 		  </tr>
 	  </table>
 	  <table id ="calendar">
@@ -121,14 +122,26 @@
 		<tr>
 			<td id="day30" class="days">30</td><td id="day31" class="days">31</td><td class = "out">1</td><td class = "out">2</td><td class = "out">3</td><td class = "out">4</td><td class = "out">5</td>
 		</tr>
-	  </table> 
+	  </table>
+	  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	  <script src="../scripts/firebase_setup.js"></script>
 	  <script>
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (!user) {
+				window.location.replace("../sign-in.html");
+			} else {
+				getGoals();
+			}
+		});
+	  
 		var goal1 = document.getElementById("goal1");
 		var goal2 = document.getElementById("goal2");
 		var goal3 = document.getElementById("goal3");
 		var goal4 = document.getElementById("goal4");
 		var goal5 = document.getElementById("goal5");
 		var goal6 = document.getElementById("goal6");
+		var goals = [];
+		var days = [];
 	  
 		//the goals that are able to be selected from the goals table
 		var availableGoals = {
@@ -203,8 +216,51 @@
 				}
 			}
 		};
+		function getGoals(){
+			var db = firebase.firestore();
+			var user = db.collection("userGoals").doc(firebase.auth().currentUser.uid);
+			user.get().then(function(doc){
+				if (doc.exists) {
+					goals = Object.values(doc.data());
+				}
+				
+				document.getElementById("goal1").innerHTML = (goals[0] != undefined) ? goals[0] : "";
+				document.getElementById("goal2").innerHTML = (goals[1] != undefined) ? goals[1] : "";
+				document.getElementById("goal3").innerHTML = (goals[2] != undefined) ? goals[2] : "";
+				document.getElementById("goal4").innerHTML = (goals[3] != undefined) ? goals[3] : "";
+				document.getElementById("goal5").innerHTML = (goals[4] != undefined) ? goals[4] : "";
+				document.getElementById("goal6").innerHTML = (goals[5] != undefined) ? goals[5] : "";
+			});
+		}
 		
-		//add a firebase method to get the available goals that the user selected
+		function getDays(goalNum){
+			var db = firebase.firestore();
+			var dayDoc = db.collection("userDays").doc(firebase.auth().currentUser.uid).collection("goalNum").doc(goalNum.toString());
+			dayDoc.get().then(function(doc){
+				if (doc.exists) {
+					var selectedDays = Object.values(doc.data());
+				}
+				
+				selectedDays.forEach(function(sDay, i) {
+					for(let n = 0; n < 31; n++){
+						if(sDay == n + 1 && goalNum == 0){
+							days[n].addColor("red");
+						} else if(sDay == n + 1 && goalNum == 1){
+							days[n].addColor("green");
+						} else if(sDay == n + 1 && goalNum == 2){
+							days[n].addColor("blue");
+						} else if(sDay == n + 1 && goalNum == 3){
+							days[n].addColor("yellow");
+						} else if(sDay == n + 1 && goalNum == 4){
+							days[n].addColor("magenta");
+						} else if(sDay == n + 1 && goalNum == 5){
+							days[n].addColor("orange");
+						}
+					}
+				});
+				highlightSelectedDays(goalNum);
+			});
+		}
 		
 		if(availableGoals.canSelect1)
 			goal1.style.backgroundColor = availableGoals.c1;
@@ -243,13 +299,7 @@
 		for(let i = 0; i < 31; i++){
 			days[i] = new day(i + 1);
 		}
-		days[3].addColor("red");
-		days[5].addColor("green");
-		days[21].addColor("blue");
-		days[30].addColor("yellow");
-		days[1].addColor("magenta");
-		days[15].addColor("orange");
-		days[30].addColor("magenta");
+		
 		
 		function clearDayElements(){
 			for(let i = 0; i < 31; i++){
@@ -278,32 +328,42 @@
 		goal1.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(0);
-			highlightSelectedDays();
+			getDays(0);
+			updateChecks(0);
 		});
 		goal2.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(1);
-			highlightSelectedDays();
+			getDays(1);
+			updateChecks(1);
 		});
 		goal3.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(2);
+			getDays(2);
 			highlightSelectedDays();
+			updateChecks(2);
 		});
 		goal4.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(3);
+			getDays(3);
 			highlightSelectedDays();
+			updateChecks(3);
 		});
 		goal5.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(4);
+			getDays(4);
 			highlightSelectedDays();
+			updateChecks(4);
 		});
 		goal6.addEventListener('click', function(){
 			clearDayElements();
 			availableGoals.selectGoal(5);
+			getDays(5);
 			highlightSelectedDays();
+			updateChecks(5);
 		});
 		
 		//an array for each color containing the checkoffs

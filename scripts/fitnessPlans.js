@@ -46,7 +46,7 @@ function uploadPlan(planIndex){
 			+ "</td><td style='border: solid black 2px'><h2>" + plan[u].rating
 			+ "</h2></td></tr>";
 			planName = plan[u].name;
-			document.getElementById(plan[u].name).addEventListener('click', planClicked);
+			document.getElementById(plan[u].name).addEventListener('click', planClicked2);
 		} else if(plan[u].type == "lowerBody" && plan[u].type == planIndex){
 			inputPlan.innerHTML += "<tr id=\"" + plan[u].name + "\"><td style='border: solid black 2px'><h3>"
 			+ plan[u].name + "</h3><br />"
@@ -123,8 +123,14 @@ function update(){
 	}
 }
 
+function planClicked2(){
+	console.log("asdf");
+}
+
 var fb = firebase.firestore();
-function planClicked(){
+function planClicked(event){
+	console.log(event.target.id);
+	
 	var planClicked = {
 		name: planName
 	};
