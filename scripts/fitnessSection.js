@@ -9,12 +9,12 @@ var meal = document.getElementById("meal");
 var sectionSelected = 0;//exercise or meal
 var typeSelected = 0;//type1, type2, or type3
 
-exercise.style.backgroundColor = "yellow";
+exercise.style.textDecoration = "underline";
 
 function switchSection(i){
 	if(i == 0){
-		exercise.style.backgroundColor = "yellow";
-		meal.style.backgroundColor = "transparent";
+		exercise.style.textDecoration = "underline";
+		meal.style.textDecoration = "none";
 		
 		type1.innerHTML = "Upper-body";
 		type2.innerHTML = "Lower-body";
@@ -22,8 +22,8 @@ function switchSection(i){
 		
 		sectionSelected = 0;
 	} else {
-		exercise.style.backgroundColor = "transparent";
-		meal.style.backgroundColor = "yellow";
+		exercise.style.textDecoration = "none";
+		meal.style.textDecoration = "underline";
 		
 		type1.innerHTML = "Weight-loss";
 		type2.innerHTML = "Bulk-up";
